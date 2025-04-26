@@ -1,3 +1,4 @@
+# .github/workflows/deploy-book.yml
 name: Deploy Jupyter-Book to GitHub Pages
 
 on:
@@ -9,24 +10,34 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # 1) Checkout entire history so gh-pages exists
       - name: Checkout repository
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0               # ← important!
 
+      # 2) Set up Python
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.x'
 
+      # 3) Install your deps
       - name: Install dependencies
         run: |
           pip install jupyter-book sphinx
 
+      # 4) Build the book into _build/html
       - name: Build the book
         run: jupyter-book build .
 
+      # 5) Deploy to gh-pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./_build/html
           publish_branch: gh-pages
+          allow_empty_commit: true      # create the branch if missing
+          user_name: github-actions[bot]
+          user_email: github-actions[bot]@users.noreply.github.com
