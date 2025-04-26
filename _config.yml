@@ -1,0 +1,15 @@
+author: Mike Mossing
+execute:
+  execute_notebooks: 'off'
+html:
+  baseurl: .
+  extra_footer:  |
+    Content © 2024 Mike Mossing
+    <script src="https://strava-embeds.com/embed.js"></script>
+  extra_navbar: A journey across South America
+  use_repository_button: false
+sphinx:
+  config:
+    html_static_path:
+    - _static
+title: South America Expedition

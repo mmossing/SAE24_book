@@ -1,0 +1,16 @@
+format: jb-book
+parts:
+- caption: Countries & Regions
+  chapters:
+  - file: colombia
+  - file: ecuador
+  - file: peru
+  - file: bolivia
+  - file: argentina
+  - file: chile
+  - file: patagonia
+- caption: Interactive Maps
+  chapters:
+  - file: notebooks/kml_visualization
+  - file: sae24-strava-rides
+root: intro

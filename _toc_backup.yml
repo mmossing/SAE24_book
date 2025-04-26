@@ -1,0 +1,15 @@
+chapters:
+- caption: Countries & Regions
+  chapters:
+  - file: content/colombia
+  - file: content/ecuador
+  - file: content/peru
+  - file: content/bolivia
+  - file: content/argentina
+  - file: content/chile
+  - file: content/patagonia
+- caption: Interactive Maps
+  chapters:
+  - file: content/notebooks/kml_visualization
+format: jb-book
+root: content/index
