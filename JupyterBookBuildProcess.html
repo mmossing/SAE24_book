@@ -1,0 +1,2081 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>JupyterBook Build Process &#8212; South America Expedition</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'JupyterBookBuildProcess';</script>
+    <link rel="canonical" href="./JupyterBookBuildProcess.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">South America Expedition</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    My South American Epic - Route Overview
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Countries &amp; Regions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="colombia.html">Colombia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecuador.html">Ecuador</a></li>
+<li class="toctree-l1"><a class="reference internal" href="peru.html">Peru</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bolivia.html">Bolivia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="argentina.html">Argentina</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chile.html">Chile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patagonia.html">Patagonia</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Interactive Maps</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="notebooks/kml_visualization.html">KML Track Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sae24-strava-rides.html">South American Expedition Strava Rides</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/JupyterBookBuildProcess.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>JupyterBook Build Process</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">JupyterBook Build Process</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">=========================</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#this-notebook-documents-the-process-of-building-our-south-america-expedition-jupyterbook">This notebook documents the process of building our South America Expedition JupyterBook.</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#links-still-not-working">Links still not working</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-create-a-python-script-to-fix-all-files">Step 3: Create a Python Script to Fix All Files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-verify-your-assets-are-correctly-copied">Step 4: Verify Your Assets Are Correctly Copied</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-rebuild-and-test">Step 5: Rebuild and Test</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-clean-jupyterbook-structure">Creating a Clean JupyterBook Structure</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-set-up-the-basic-directory-structure">Step 1: Set Up the Basic Directory Structure</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-responsive-well-aligned-layouts-in-jupyterbook">Creating Responsive, Well-Aligned Layouts in JupyterBook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-alignment-problem">The Alignment Problem</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-1-flexbox-layout-with-consistent-height">Solution 1: Flexbox Layout with Consistent Height</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-2-grid-layout-for-more-complex-arrangements">Solution 2: Grid Layout for More Complex Arrangements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-3-myst-markdown-extensions-with-panels">Solution 3: MyST Markdown Extensions with Panels</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-4-simple-inline-display-with-clear-visual-separation">Solution 4: Simple Inline Display with Clear Visual Separation</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#clean-and-build">Clean and build</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#image-links">Image links</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="jupyterbook-build-process">
+<h1>JupyterBook Build Process<a class="headerlink" href="#jupyterbook-build-process" title="Link to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>=========================<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="this-notebook-documents-the-process-of-building-our-south-america-expedition-jupyterbook">
+<h1>This notebook documents the process of building our South America Expedition JupyterBook.<a class="headerlink" href="#this-notebook-documents-the-process-of-building-our-south-america-expedition-jupyterbook" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># First, let&#39;s import some useful libraries</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">glob</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
+
+<span class="c1"># Check our current working directory</span>
+<span class="o">!</span>pwd
+
+<span class="c1"># Display the JupyterBook project structure</span>
+<span class="o">!</span>ls<span class="w"> </span>-la
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book
+total 56
+drwxr-xr-x  10 mike  staff   320 Feb 27 11:58 <span class=" -Color -Color-Blue">.</span>
+drwxr-xr-x   5 mike  staff   160 Feb 27 11:11 <span class=" -Color -Color-Blue">..</span>
+-rw-r--r--@  1 mike  staff  6148 Feb 27 10:51 .DS_Store
+drwxr-xr-x   3 mike  staff    96 Feb 27 11:24 <span class=" -Color -Color-Blue">.ipynb_checkpoints</span>
+-rw-r--r--   1 mike  staff  6882 Feb 27 11:58 JupyterBookBuildProcess.ipynb
+drwxr-xr-x   5 mike  staff   160 Feb 27 10:35 <span class=" -Color -Color-Blue">_build</span>
+-rw-r--r--@  1 mike  staff   222 Feb 27 10:34 _config.yml
+-rw-r--r--   1 mike  staff   354 Feb 27 10:29 _toc.yml
+-rw-r--r--   1 mike  staff   357 Feb 27 10:25 _toc_backup.yml
+drwxr-xr-x  14 mike  staff   448 Feb 27 15:02 <span class=" -Color -Color-Blue">content</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. Path Fixing Function</span>
+<span class="c1"># -----------------------</span>
+<span class="c1"># This function helps fix asset paths in markdown files by adding &#39;./&#39; prefix</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">fix_markdown_paths</span><span class="p">(</span><span class="n">file_path</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Fixes paths in markdown files by adding &#39;./&#39; prefix to asset references.</span>
+<span class="sd">    Returns number of replacements made.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">content</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    
+    <span class="c1"># Fix image paths</span>
+    <span class="n">pattern_img</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;src=&quot;assets/images/&#39;</span>
+    <span class="n">replacement_img</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;src=&quot;./assets/images/&#39;</span>
+    <span class="n">content_updated</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">pattern_img</span><span class="p">,</span> <span class="n">replacement_img</span><span class="p">,</span> <span class="n">content</span><span class="p">)</span>
+    
+    <span class="c1"># Fix map paths</span>
+    <span class="n">pattern_map</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;src=&quot;assets/maps/&#39;</span>
+    <span class="n">replacement_map</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;src=&quot;./assets/maps/&#39;</span>
+    <span class="n">content_updated</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">pattern_map</span><span class="p">,</span> <span class="n">replacement_map</span><span class="p">,</span> <span class="n">content_updated</span><span class="p">)</span>
+    
+    <span class="c1"># Count total replacements</span>
+    <span class="n">img_replacements</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern_img</span><span class="p">,</span> <span class="n">content</span><span class="p">))</span>
+    <span class="n">map_replacements</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern_map</span><span class="p">,</span> <span class="n">content</span><span class="p">))</span>
+    <span class="n">total_replacements</span> <span class="o">=</span> <span class="n">img_replacements</span> <span class="o">+</span> <span class="n">map_replacements</span>
+    
+    <span class="c1"># Only write if changes were made</span>
+    <span class="k">if</span> <span class="n">total_replacements</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+            <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">content_updated</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">total_replacements</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 2. Path Analysis - Check Which Files Need Fixing</span>
+<span class="c1"># -----------------------------------------------</span>
+<span class="c1"># Let&#39;s scan all markdown files to see which ones have paths that need updating</span>
+
+<span class="n">markdown_files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;content/*.md&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Found </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">markdown_files</span><span class="p">)</span><span class="si">}</span><span class="s2"> markdown files to check:&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">file_path</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">markdown_files</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    
+    <span class="c1"># Count problematic paths</span>
+    <span class="n">img_refs</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;src=&quot;assets/images/&#39;</span><span class="p">,</span> <span class="n">content</span><span class="p">))</span>
+    <span class="n">map_refs</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;src=&quot;assets/maps/&#39;</span><span class="p">,</span> <span class="n">content</span><span class="p">))</span>
+    
+    <span class="k">if</span> <span class="n">img_refs</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">map_refs</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">. </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">img_refs</span><span class="si">}</span><span class="s2"> image refs, </span><span class="si">{</span><span class="n">map_refs</span><span class="si">}</span><span class="s2"> map refs need fixing&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">. </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span><span class="si">}</span><span class="s2">: No path fixes needed&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Found 8 markdown files to check:
+1. ecuador.md: No path fixes needed
+2. colombia.md: No path fixes needed
+3. chile.md: No path fixes needed
+4. index.md: No path fixes needed
+5. argentina.md: No path fixes needed
+6. peru.md: No path fixes needed
+7. bolivia.md: No path fixes needed
+8. patagonia.md: No path fixes needed
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 3. Fix Paths in All Markdown Files</span>
+<span class="c1"># ---------------------------------</span>
+<span class="c1"># Now let&#39;s run the fix function on all markdown files</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Fixing paths in markdown files...&quot;</span><span class="p">)</span>
+<span class="n">total_files_updated</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">total_paths_fixed</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">for</span> <span class="n">file_path</span> <span class="ow">in</span> <span class="n">markdown_files</span><span class="p">:</span>
+    <span class="n">paths_fixed</span> <span class="o">=</span> <span class="n">fix_markdown_paths</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">paths_fixed</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">total_files_updated</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">total_paths_fixed</span> <span class="o">+=</span> <span class="n">paths_fixed</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Updated </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">paths_fixed</span><span class="si">}</span><span class="s2"> paths fixed&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Summary: Updated </span><span class="si">{</span><span class="n">total_files_updated</span><span class="si">}</span><span class="s2"> files, fixed </span><span class="si">{</span><span class="n">total_paths_fixed</span><span class="si">}</span><span class="s2"> paths total&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fixing paths in markdown files...
+
+Summary: Updated 0 files, fixed 0 paths total
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 4. Clean Previous Build (Optional)</span>
+<span class="c1"># --------------------------------</span>
+<span class="c1"># Remove previous build artifacts for a clean build</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Cleaning previous build...&quot;</span><span class="p">)</span>
+<span class="o">!</span>jupyter-book<span class="w"> </span>clean<span class="w"> </span>.
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning previous build...
+
+===============================================================================
+
+Your _build directory has been emptied except for .jupyter_cache
+
+===============================================================================
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 5. Build the JupyterBook</span>
+<span class="c1"># -----------------------</span>
+<span class="c1"># Run the build process</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Building JupyterBook...&quot;</span><span class="p">)</span>
+<span class="n">build_start</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+<span class="o">!</span>jupyter-book<span class="w"> </span>build<span class="w"> </span>.
+<span class="n">build_end</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+<span class="n">build_duration</span> <span class="o">=</span> <span class="n">build_end</span> <span class="o">-</span> <span class="n">build_start</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Build completed in </span><span class="si">{</span><span class="n">build_duration</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">()</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Building JupyterBook...
+<span class=" -Color -Color-Bold -Color-Bold-Green">Running Jupyter-Book v1.0.4.post0</span>
+<span class=" -Color -Color-Bold -Color-Bold-Blue">Source Folder: </span>/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book
+<span class=" -Color -Color-Bold -Color-Bold-Blue">Config Path: </span>/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/_config.yml
+<span class=" -Color -Color-Bold -Color-Bold-Blue">Output Path: </span>/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/_build/html
+<span class=" -Color -Color-Bold">Running Sphinx v7.3.7</span>
+/Users/mike/opt/anaconda3/lib/python3.9/site-packages/sphinxcontrib/applehelp/__init__.py:24: RemovedInSphinx80Warning: The alias &#39;sphinx.util.SkipProgressMessage&#39; is deprecated, use &#39;sphinx.util.display.SkipProgressMessage&#39; instead. Check CHANGES for Sphinx API modifications.
+  from sphinx.util import SkipProgressMessage, progress_message
+/Users/mike/opt/anaconda3/lib/python3.9/site-packages/sphinxcontrib/applehelp/__init__.py:24: RemovedInSphinx80Warning: The alias &#39;sphinx.util.progress_message&#39; is deprecated, use &#39;sphinx.util.display.progress_message&#39; instead. Check CHANGES for Sphinx API modifications.
+  from sphinx.util import SkipProgressMessage, progress_message
+/Users/mike/opt/anaconda3/lib/python3.9/site-packages/sphinxcontrib/htmlhelp/__init__.py:26: RemovedInSphinx80Warning: The alias &#39;sphinx.util.progress_message&#39; is deprecated, use &#39;sphinx.util.display.progress_message&#39; instead. Check CHANGES for Sphinx API modifications.
+  from sphinx.util import progress_message
+<span class=" -Color -Color-Bold">making output directory... </span>done
+[etoc] Changing master_doc to &#39;content/index&#39;
+<span class=" -Color -Color-Bold">myst v3.0.1:</span> MdParserConfig(commonmark_only=False, gfm_only=False, enable_extensions={&#39;linkify&#39;, &#39;substitution&#39;, &#39;tasklist&#39;, &#39;dollarmath&#39;, &#39;colon_fence&#39;}, disable_syntax=[], all_links_external=False, links_external_new_tab=False, url_schemes=(&#39;mailto&#39;, &#39;http&#39;, &#39;https&#39;), ref_domains=None, fence_as_directive=set(), number_code_blocks=[], title_to_header=False, heading_anchors=0, heading_slug_func=None, html_meta={}, footnote_transition=True, words_per_minute=200, substitutions={}, linkify_fuzzy_links=True, dmath_allow_labels=True, dmath_allow_space=True, dmath_allow_digits=True, dmath_double_inline=False, update_mathjax=True, mathjax_classes=&#39;tex2jax_process|mathjax_process|math|output_area&#39;, enable_checkboxes=False, suppress_warnings=[], highlight_code_blocks=True)
+<span class=" -Color -Color-Bold">myst-nb v1.2.0:</span> NbParserConfig(custom_formats={}, metadata_key=&#39;mystnb&#39;, cell_metadata_key=&#39;mystnb&#39;, kernel_rgx_aliases={}, eval_name_regex=&#39;^[a-zA-Z_][a-zA-Z0-9_]*$&#39;, execution_mode=&#39;off&#39;, execution_cache_path=&#39;&#39;, execution_excludepatterns=[], execution_timeout=30, execution_in_temp=False, execution_allow_errors=False, execution_raise_on_error=False, execution_show_tb=False, merge_streams=False, render_plugin=&#39;default&#39;, remove_code_source=False, remove_code_outputs=False, code_prompt_show=&#39;Show code cell {type}&#39;, code_prompt_hide=&#39;Hide code cell {type}&#39;, number_source_lines=False, output_stderr=&#39;show&#39;, render_text_lexer=&#39;myst-ansi&#39;, render_error_lexer=&#39;ipythontb&#39;, render_image_options={}, render_figure_options={}, render_markdown_format=&#39;commonmark&#39;, output_folder=&#39;build&#39;, append_css=True, metadata_to_fm=False)
+Using jupyter-cache at: /Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/_build/.jupyter_cache
+<span class=" -Color -Color-Bold">sphinx-multitoc-numbering v0.1.3:</span> Loaded
+<span class=" -Color -Color-Bold">building [mo]: </span>targets for 0 po files that are out of date
+<span class=" -Color -Color-Bold">writing output... </span>
+<span class=" -Color -Color-Bold">building [html]: </span>targets for 10 source files that are out of date
+<span class=" -Color -Color-Bold">updating environment: </span>[new config] 10 added, 0 changed, 0 removed
+<span class=" -Color -Color-Bold">reading sources... </span>[100%] <span class=" -Color -Color-Magenta">content/peru</span>9;00mization
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/content/index.md:9: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/content/index.md:15: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/content/index.md:70: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/content/index.md:97: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/content/index.md:105: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/content/index.md:113: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/content/index.md:121: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/content/index.md:129: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/content/index.md:137: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/content/index.md:146: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/content/notebooks/kml_visualization.ipynb:20002: WARNING: No source code lexer found for notebook cell 2 [myst-nb.lexer]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/content/notebooks/kml_visualization.ipynb:40002: WARNING: No source code lexer found for notebook cell 4 [myst-nb.lexer]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/content/notebooks/kml_visualization.ipynb:60002: WARNING: No source code lexer found for notebook cell 6 [myst-nb.lexer]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/content/notebooks/kml_visualization.ipynb:80002: WARNING: No source code lexer found for notebook cell 8 [myst-nb.lexer]
+<span class=" -Color -Color-Bold">looking for now-outdated files... </span>none found
+<span class=" -Color -Color-Bold">pickling environment... </span>done
+<span class=" -Color -Color-Bold">checking consistency... </span>/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/JupyterBookBuildProcess.ipynb: WARNING: document isn&#39;t included in any toctree
+done
+<span class=" -Color -Color-Bold">preparing documents... </span>done
+<span class=" -Color -Color-Bold">copying assets... copying static files... </span>done
+<span class=" -Color -Color-Bold">copying extra files... </span>done
+done
+<span class=" -Color -Color-Bold">writing output... </span>[100%] <span class=" -Color -Color-Green">content/peru</span>9;00mization
+<span class=" -Color -Color-Bold">generating indices... </span>genindex done
+<span class=" -Color -Color-Bold">writing additional pages... </span>search done
+<span class=" -Color -Color-Bold">copying images... </span>[100%] <span class=" -Color -Color-Yellow">content/assets/images/weekly_summary_large_text.png</span>
+<span class=" -Color -Color-Bold">dumping search index in English (code: en)... </span>done
+<span class=" -Color -Color-Bold">dumping object inventory... </span>done
+[etoc] missing index.html written as redirect to &#39;content/index.html&#39;
+<span class=" -Color -Color-Bold">build succeeded, 15 warnings.</span>
+
+The HTML pages are in _build/html.
+
+===============================================================================
+
+Finished generating HTML for book.
+Your book&#39;s HTML pages are here:
+    _build/html/
+You can look at your book by opening this file in a browser:
+    _build/html/index.html
+Or paste this line directly into your browser bar:
+    file:///Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/_build/html/index.html            
+
+===============================================================================
+
+
+Build completed in 7.68 seconds
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Successful build 2025-02-27</span>
+<span class="err">```</span>
+<span class="n">Building</span> <span class="n">JupyterBook</span><span class="o">...</span>
+<span class="n">Running</span> <span class="n">Jupyter</span><span class="o">-</span><span class="n">Book</span> <span class="n">v1</span><span class="mf">.0.4</span><span class="o">.</span><span class="n">post0</span>
+<span class="o">...</span>
+<span class="o">===============================================================================</span>
+
+<span class="n">Finished</span> <span class="n">generating</span> <span class="n">HTML</span> <span class="k">for</span> <span class="n">book</span><span class="o">.</span>
+<span class="n">Your</span> <span class="n">book</span><span class="s1">&#39;s HTML pages are here:</span>
+    <span class="n">_build</span><span class="o">/</span><span class="n">html</span><span class="o">/</span>
+<span class="n">You</span> <span class="n">can</span> <span class="n">look</span> <span class="n">at</span> <span class="n">your</span> <span class="n">book</span> <span class="n">by</span> <span class="n">opening</span> <span class="n">this</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">a</span> <span class="n">browser</span><span class="p">:</span>
+    <span class="n">_build</span><span class="o">/</span><span class="n">html</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">html</span>
+<span class="n">Or</span> <span class="n">paste</span> <span class="n">this</span> <span class="n">line</span> <span class="n">directly</span> <span class="n">into</span> <span class="n">your</span> <span class="n">browser</span> <span class="n">bar</span><span class="p">:</span>
+    <span class="n">file</span><span class="p">:</span><span class="o">///</span><span class="n">Users</span><span class="o">/</span><span class="n">mike</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">Travel</span><span class="o">/</span><span class="n">SAE2024</span><span class="o">/</span><span class="n">Summary_SAE2024</span><span class="o">/</span><span class="n">SAEstory</span><span class="o">/</span><span class="n">Book</span><span class="o">/</span><span class="n">SAE24_book</span><span class="o">/</span><span class="n">_build</span><span class="o">/</span><span class="n">html</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">html</span>            
+
+<span class="o">===============================================================================</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 6. Verify Build Output</span>
+<span class="c1"># --------------------</span>
+<span class="c1"># Check that the build directory contains the expected files</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Verifying build output...&quot;</span><span class="p">)</span>
+<span class="o">!</span>ls<span class="w"> </span>-la<span class="w"> </span>_build/html/
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Verifying build output...
+total 208
+drwxr-xr-x  14 mike  staff    448 Feb 27 15:05 <span class=" -Color -Color-Blue">.</span>
+drwxr-xr-x   5 mike  staff    160 Feb 27 15:05 <span class=" -Color -Color-Blue">..</span>
+-rw-r--r--   1 mike  staff    230 Feb 27 15:05 .buildinfo
+-rw-r--r--   1 mike  staff  33899 Feb 27 15:05 JupyterBookBuildProcess.html
+drwxr-xr-x   3 mike  staff     96 Feb 27 15:05 <span class=" -Color -Color-Blue">_images</span>
+drwxr-xr-x   4 mike  staff    128 Feb 27 15:05 <span class=" -Color -Color-Blue">_sources</span>
+drwxr-xr-x   4 mike  staff    128 Feb 27 15:05 <span class=" -Color -Color-Blue">_sphinx_design_static</span>
+drwxr-xr-x  33 mike  staff   1056 Feb 27 15:05 <span class=" -Color -Color-Blue">_static</span>
+drwxr-xr-x  11 mike  staff    352 Feb 27 15:05 <span class=" -Color -Color-Blue">content</span>
+-rw-r--r--   1 mike  staff  12436 Feb 27 15:05 genindex.html
+-rw-r--r--   1 mike  staff     66 Feb 27 15:05 index.html
+-rw-r--r--   1 mike  staff    566 Feb 27 15:05 objects.inv
+-rw-r--r--   1 mike  staff  13262 Feb 27 15:05 search.html
+-rw-r--r--   1 mike  staff  23813 Feb 27 15:05 searchindex.js
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 7. Open the Built Book (Optional)</span>
+<span class="c1"># -------------------------------</span>
+<span class="c1"># This command will open the built book in your default browser (works on macOS)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Opening built book in browser...&quot;</span><span class="p">)</span>
+<span class="o">!</span>open<span class="w"> </span>_build/html/index.html<span class="w">  </span>#<span class="w"> </span>Use<span class="w"> </span><span class="s1">&#39;start&#39;</span><span class="w"> </span>on<span class="w"> </span>Windows<span class="w"> </span>or<span class="w"> </span><span class="s1">&#39;xdg-open&#39;</span><span class="w"> </span>on<span class="w"> </span>Linux
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Opening built book in browser...
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="links-still-not-working">
+<h1>Links still not working<a class="headerlink" href="#links-still-not-working" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># JupyterBook Asset Path Fixing Notebook</span>
+<span class="c1"># =====================================</span>
+<span class="c1"># This notebook updates your markdown files to use JupyterBook&#39;s pathto syntax</span>
+<span class="c1"># and updates your configuration to properly handle static assets.</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">glob</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">yaml</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">shutil</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="c1"># 1. Check project structure</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Current working directory:&quot;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Markdown files found:&quot;</span><span class="p">)</span>
+<span class="n">md_files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;content/*.md&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">md_files</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;- </span><span class="si">{</span><span class="n">file</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Asset directories:&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">&quot;content/assets/maps&quot;</span><span class="p">):</span>
+    <span class="n">map_files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;content/assets/maps/*.html&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;- Maps directory: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">map_files</span><span class="p">)</span><span class="si">}</span><span class="s2"> HTML files&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">&quot;content/assets/images&quot;</span><span class="p">):</span>
+    <span class="n">image_files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;content/assets/images/*.png&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;- Images directory: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">image_files</span><span class="p">)</span><span class="si">}</span><span class="s2"> PNG files&quot;</span><span class="p">)</span>
+
+<span class="c1"># 2. Update _config.yml file</span>
+<span class="n">config_path</span> <span class="o">=</span> <span class="s2">&quot;_config.yml&quot;</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">config_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">config</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+
+<span class="c1"># Add or update the sphinx configuration</span>
+<span class="k">if</span> <span class="s1">&#39;sphinx&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">config</span><span class="p">:</span>
+    <span class="n">config</span><span class="p">[</span><span class="s1">&#39;sphinx&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;config&#39;</span><span class="p">:</span> <span class="p">{}}</span>
+<span class="k">if</span> <span class="s1">&#39;config&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;sphinx&#39;</span><span class="p">]:</span>
+    <span class="n">config</span><span class="p">[</span><span class="s1">&#39;sphinx&#39;</span><span class="p">][</span><span class="s1">&#39;config&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="n">config</span><span class="p">[</span><span class="s1">&#39;sphinx&#39;</span><span class="p">][</span><span class="s1">&#39;config&#39;</span><span class="p">][</span><span class="s1">&#39;html_static_path&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;content/assets&#39;</span><span class="p">]</span>
+<span class="n">config</span><span class="p">[</span><span class="s1">&#39;sphinx&#39;</span><span class="p">][</span><span class="s1">&#39;config&#39;</span><span class="p">][</span><span class="s1">&#39;html_extra_path&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;content/assets&#39;</span><span class="p">]</span>
+
+<span class="k">if</span> <span class="s1">&#39;html&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">config</span><span class="p">:</span>
+    <span class="n">config</span><span class="p">[</span><span class="s1">&#39;html&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">config</span><span class="p">[</span><span class="s1">&#39;html&#39;</span><span class="p">][</span><span class="s1">&#39;baseurl&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;.&quot;</span>
+
+<span class="c1"># Write the updated configuration back</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">config_path</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">yaml</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">file</span><span class="p">,</span> <span class="n">default_flow_style</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Updated </span><span class="si">{</span><span class="n">config_path</span><span class="si">}</span><span class="s2"> with static path settings&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Current working directory: /Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book
+
+Markdown files found:
+- content/ecuador.md
+- content/colombia.md
+- content/chile.md
+- content/index.md
+- content/argentina.md
+- content/peru.md
+- content/bolivia.md
+- content/patagonia.md
+
+Asset directories:
+- Maps directory: 28 HTML files
+- Images directory: 29 PNG files
+
+Updated _config.yml with static path settings
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 3. Define function to update markdown files</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">update_to_pathto_syntax</span><span class="p">(</span><span class="n">file_path</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">content</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    
+    <span class="c1"># Keep track of replacements</span>
+    <span class="n">maps_replaced</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">images_replaced</span> <span class="o">=</span> <span class="mi">0</span>
+    
+    <span class="c1"># Update map references</span>
+    <span class="n">new_content</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span>
+        <span class="sa">r</span><span class="s1">&#39;src=&quot;\.?/assets/maps/([^&quot;]+)&quot;&#39;</span><span class="p">,</span>
+        <span class="sa">r</span><span class="s1">&#39;src=&quot;{{ pathto(</span><span class="se">\&#39;</span><span class="s1">_static/maps/\1</span><span class="se">\&#39;</span><span class="s1">, 1) }}&quot;&#39;</span><span class="p">,</span>
+        <span class="n">content</span>
+    <span class="p">)</span>
+    <span class="n">maps_replaced</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;src=&quot;\.?/assets/maps/([^&quot;]+)&quot;&#39;</span><span class="p">,</span> <span class="n">content</span><span class="p">))</span>
+    
+    <span class="c1"># Update image references</span>
+    <span class="n">new_content</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span>
+        <span class="sa">r</span><span class="s1">&#39;src=&quot;\.?/assets/images/([^&quot;]+)&quot;&#39;</span><span class="p">,</span>
+        <span class="sa">r</span><span class="s1">&#39;src=&quot;{{ pathto(</span><span class="se">\&#39;</span><span class="s1">_static/images/\1</span><span class="se">\&#39;</span><span class="s1">, 1) }}&quot;&#39;</span><span class="p">,</span>
+        <span class="n">new_content</span>
+    <span class="p">)</span>
+    <span class="n">images_replaced</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;src=&quot;\.?/assets/images/([^&quot;]+)&quot;&#39;</span><span class="p">,</span> <span class="n">content</span><span class="p">))</span>
+    
+    <span class="c1"># Only write if changes were made</span>
+    <span class="k">if</span> <span class="n">new_content</span> <span class="o">!=</span> <span class="n">content</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+            <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">new_content</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">maps_replaced</span><span class="p">,</span> <span class="n">images_replaced</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+
+<span class="c1"># 4. Update all markdown files</span>
+<span class="n">total_maps</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">total_images</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">updated_files</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Updating markdown files with pathto syntax...&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">file_path</span> <span class="ow">in</span> <span class="n">md_files</span><span class="p">:</span>
+    <span class="n">maps</span><span class="p">,</span> <span class="n">images</span> <span class="o">=</span> <span class="n">update_to_pathto_syntax</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">maps</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">images</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">updated_files</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">total_maps</span> <span class="o">+=</span> <span class="n">maps</span>
+        <span class="n">total_images</span> <span class="o">+=</span> <span class="n">images</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;- </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">maps</span><span class="si">}</span><span class="s2"> maps, </span><span class="si">{</span><span class="n">images</span><span class="si">}</span><span class="s2"> images updated&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Summary: Updated </span><span class="si">{</span><span class="n">updated_files</span><span class="si">}</span><span class="s2"> files, </span><span class="si">{</span><span class="n">total_maps</span><span class="si">}</span><span class="s2"> map references, </span><span class="si">{</span><span class="n">total_images</span><span class="si">}</span><span class="s2"> image references&quot;</span><span class="p">)</span>
+
+<span class="c1"># 5. Clean and rebuild the JupyterBook</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Cleaning previous build...&quot;</span><span class="p">)</span>
+<span class="o">!</span>jupyter-book<span class="w"> </span>clean<span class="w"> </span>.
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Rebuilding JupyterBook...&quot;</span><span class="p">)</span>
+<span class="o">!</span>jupyter-book<span class="w"> </span>build<span class="w"> </span>.
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Build complete! Check your book at _build/html/index.html&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Updating markdown files with pathto syntax...
+- ecuador.md: 4 maps, 0 images updated
+- colombia.md: 6 maps, 6 images updated
+- chile.md: 3 maps, 0 images updated
+- index.md: 1 maps, 1 images updated
+- argentina.md: 4 maps, 0 images updated
+- peru.md: 5 maps, 0 images updated
+- bolivia.md: 2 maps, 0 images updated
+- patagonia.md: 4 maps, 0 images updated
+
+Summary: Updated 8 files, 29 map references, 7 image references
+
+Cleaning previous build...
+
+===============================================================================
+
+Your _build directory has been emptied except for .jupyter_cache
+
+===============================================================================
+
+
+Rebuilding JupyterBook...
+<span class=" -Color -Color-Bold -Color-Bold-Green">Running Jupyter-Book v1.0.4.post0</span>
+<span class=" -Color -Color-Bold -Color-Bold-Blue">Source Folder: </span>/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book
+<span class=" -Color -Color-Bold -Color-Bold-Blue">Config Path: </span>/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/_config.yml
+<span class=" -Color -Color-Bold -Color-Bold-Blue">Output Path: </span>/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/_build/html
+<span class=" -Color -Color-Bold">Running Sphinx v7.3.7</span>
+/Users/mike/opt/anaconda3/lib/python3.9/site-packages/sphinxcontrib/applehelp/__init__.py:24: RemovedInSphinx80Warning: The alias &#39;sphinx.util.SkipProgressMessage&#39; is deprecated, use &#39;sphinx.util.display.SkipProgressMessage&#39; instead. Check CHANGES for Sphinx API modifications.
+  from sphinx.util import SkipProgressMessage, progress_message
+/Users/mike/opt/anaconda3/lib/python3.9/site-packages/sphinxcontrib/applehelp/__init__.py:24: RemovedInSphinx80Warning: The alias &#39;sphinx.util.progress_message&#39; is deprecated, use &#39;sphinx.util.display.progress_message&#39; instead. Check CHANGES for Sphinx API modifications.
+  from sphinx.util import SkipProgressMessage, progress_message
+/Users/mike/opt/anaconda3/lib/python3.9/site-packages/sphinxcontrib/htmlhelp/__init__.py:26: RemovedInSphinx80Warning: The alias &#39;sphinx.util.progress_message&#39; is deprecated, use &#39;sphinx.util.display.progress_message&#39; instead. Check CHANGES for Sphinx API modifications.
+  from sphinx.util import progress_message
+<span class=" -Color -Color-Bold">making output directory... </span>done
+[etoc] Changing master_doc to &#39;content/index&#39;
+<span class=" -Color -Color-Bold">myst v3.0.1:</span> MdParserConfig(commonmark_only=False, gfm_only=False, enable_extensions={&#39;colon_fence&#39;, &#39;substitution&#39;, &#39;dollarmath&#39;, &#39;tasklist&#39;, &#39;linkify&#39;}, disable_syntax=[], all_links_external=False, links_external_new_tab=False, url_schemes=(&#39;mailto&#39;, &#39;http&#39;, &#39;https&#39;), ref_domains=None, fence_as_directive=set(), number_code_blocks=[], title_to_header=False, heading_anchors=0, heading_slug_func=None, html_meta={}, footnote_transition=True, words_per_minute=200, substitutions={}, linkify_fuzzy_links=True, dmath_allow_labels=True, dmath_allow_space=True, dmath_allow_digits=True, dmath_double_inline=False, update_mathjax=True, mathjax_classes=&#39;tex2jax_process|mathjax_process|math|output_area&#39;, enable_checkboxes=False, suppress_warnings=[], highlight_code_blocks=True)
+<span class=" -Color -Color-Bold">myst-nb v1.2.0:</span> NbParserConfig(custom_formats={}, metadata_key=&#39;mystnb&#39;, cell_metadata_key=&#39;mystnb&#39;, kernel_rgx_aliases={}, eval_name_regex=&#39;^[a-zA-Z_][a-zA-Z0-9_]*$&#39;, execution_mode=&#39;off&#39;, execution_cache_path=&#39;&#39;, execution_excludepatterns=[], execution_timeout=30, execution_in_temp=False, execution_allow_errors=False, execution_raise_on_error=False, execution_show_tb=False, merge_streams=False, render_plugin=&#39;default&#39;, remove_code_source=False, remove_code_outputs=False, code_prompt_show=&#39;Show code cell {type}&#39;, code_prompt_hide=&#39;Hide code cell {type}&#39;, number_source_lines=False, output_stderr=&#39;show&#39;, render_text_lexer=&#39;myst-ansi&#39;, render_error_lexer=&#39;ipythontb&#39;, render_image_options={}, render_figure_options={}, render_markdown_format=&#39;commonmark&#39;, output_folder=&#39;build&#39;, append_css=True, metadata_to_fm=False)
+Using jupyter-cache at: /Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/_build/.jupyter_cache
+<span class=" -Color -Color-Bold">sphinx-multitoc-numbering v0.1.3:</span> Loaded
+<span class=" -Color -Color-Bold">building [mo]: </span>targets for 0 po files that are out of date
+<span class=" -Color -Color-Bold">writing output... </span>
+<span class=" -Color -Color-Bold">building [html]: </span>targets for 10 source files that are out of date
+<span class=" -Color -Color-Bold">updating environment: </span>[new config] 10 added, 0 changed, 0 removed
+<span class=" -Color -Color-Bold">reading sources... </span>[100%] <span class=" -Color -Color-Magenta">content/peru</span>9;00mization sources... [ 40%] <span class=" -Color -Color-Magenta">content/chile</span>
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/content/index.md:9: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/content/index.md:15: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/content/index.md:70: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/content/index.md:97: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/content/index.md:105: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/content/index.md:113: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/content/index.md:121: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/content/index.md:129: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/content/index.md:137: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/content/index.md:146: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/content/notebooks/kml_visualization.ipynb:20002: WARNING: No source code lexer found for notebook cell 2 [myst-nb.lexer]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/content/notebooks/kml_visualization.ipynb:40002: WARNING: No source code lexer found for notebook cell 4 [myst-nb.lexer]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/content/notebooks/kml_visualization.ipynb:60002: WARNING: No source code lexer found for notebook cell 6 [myst-nb.lexer]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/content/notebooks/kml_visualization.ipynb:80002: WARNING: No source code lexer found for notebook cell 8 [myst-nb.lexer]
+<span class=" -Color -Color-Bold">looking for now-outdated files... </span>none found
+<span class=" -Color -Color-Bold">pickling environment... </span>done
+<span class=" -Color -Color-Bold">checking consistency... </span>/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/JupyterBookBuildProcess.ipynb: WARNING: document isn&#39;t included in any toctree
+done
+<span class=" -Color -Color-Bold">preparing documents... </span>done
+<span class=" -Color -Color-Bold">copying assets... copying static files... </span>done
+<span class=" -Color -Color-Bold">copying extra files... </span>done
+done
+<span class=" -Color -Color-Bold">writing output... </span>[100%] <span class=" -Color -Color-Green">content/peru</span>9;00mization
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/JupyterBookBuildProcess.ipynb:80002: WARNING: Lexing literal_block &quot;# Successful build 2025-02-27\n```\nBuilding JupyterBook...\nRunning Jupyter-Book v1.0.4.post0\n...\n===============================================================================\n\nFinished generating HTML for book.\nYour book&#39;s HTML pages are here:\n    _build/html/\nYou can look at your book by opening this file in a browser:\n    _build/html/index.html\nOr paste this line directly into your browser bar:\n    file:///Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/_build/html/index.html            \n\n===============================================================================\n&quot; as &quot;ipython3&quot; resulted in an error at token: &#39;`&#39;. Retrying in relaxed mode.
+<span class=" -Color -Color-Bold">generating indices... </span>genindex done
+<span class=" -Color -Color-Bold">writing additional pages... </span>search done
+<span class=" -Color -Color-Bold">copying images... </span>[100%] <span class=" -Color -Color-Yellow">content/assets/images/weekly_summary_large_text.png</span>
+<span class=" -Color -Color-Bold">dumping search index in English (code: en)... </span>done
+<span class=" -Color -Color-Bold">dumping object inventory... </span>done
+[etoc] missing index.html written as redirect to &#39;content/index.html&#39;
+<span class=" -Color -Color-Bold">build succeeded, 16 warnings.</span>
+
+The HTML pages are in _build/html.
+
+===============================================================================
+
+Finished generating HTML for book.
+Your book&#39;s HTML pages are here:
+    _build/html/
+You can look at your book by opening this file in a browser:
+    _build/html/index.html
+Or paste this line directly into your browser bar:
+    file:///Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/_build/html/index.html            
+
+===============================================================================
+
+
+Build complete! Check your book at _build/html/index.html
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 6. Optional: Create a backup of the assets in the _static directory</span>
+<span class="n">build_static_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;_build/html/_static&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">build_static_dir</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">build_static_dir</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Copy maps and images to the _static directory as a fallback</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Creating backup copies of assets in _static directory...&quot;</span><span class="p">)</span>
+<span class="n">maps_dir</span> <span class="o">=</span> <span class="n">build_static_dir</span> <span class="o">/</span> <span class="s2">&quot;maps&quot;</span>
+<span class="n">images_dir</span> <span class="o">=</span> <span class="n">build_static_dir</span> <span class="o">/</span> <span class="s2">&quot;images&quot;</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">maps_dir</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">images_dir</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Copy maps</span>
+<span class="n">maps_copied</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">map_file</span> <span class="ow">in</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;content/assets/maps&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;*.html&quot;</span><span class="p">):</span>
+    <span class="n">shutil</span><span class="o">.</span><span class="n">copy2</span><span class="p">(</span><span class="n">map_file</span><span class="p">,</span> <span class="n">maps_dir</span><span class="p">)</span>
+    <span class="n">maps_copied</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="c1"># Copy images</span>
+<span class="n">images_copied</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">image_file</span> <span class="ow">in</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;content/assets/images&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;*.png&quot;</span><span class="p">):</span>
+    <span class="n">shutil</span><span class="o">.</span><span class="n">copy2</span><span class="p">(</span><span class="n">image_file</span><span class="p">,</span> <span class="n">images_dir</span><span class="p">)</span>
+    <span class="n">images_copied</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Copied </span><span class="si">{</span><span class="n">maps_copied</span><span class="si">}</span><span class="s2"> maps and </span><span class="si">{</span><span class="n">images_copied</span><span class="si">}</span><span class="s2"> images as backup&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Process complete! Open your book in a browser to verify the images and maps are working correctly.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating backup copies of assets in _static directory...
+Copied 28 maps and 29 images as backup
+
+Process complete! Open your book in a browser to verify the images and maps are working correctly.
+</pre></div>
+</div>
+</div>
+</div>
+<p>The key change is to use a simple relative path with ../ to go up one directory level, then access the _static directory where your assets should be copied during the build.</p>
+<section id="step-3-create-a-python-script-to-fix-all-files">
+<h2>Step 3: Create a Python Script to Fix All Files<a class="headerlink" href="#step-3-create-a-python-script-to-fix-all-files" title="Link to this heading">#</a></h2>
+<p>Here’s a script to update all your markdown files:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">glob</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">fix_path_references</span><span class="p">(</span><span class="n">file_path</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">content</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    
+    <span class="c1"># Fix iframe sources</span>
+    <span class="n">content</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span>
+        <span class="sa">r</span><span class="s1">&#39;src=&quot;\{\{ pathto\(</span><span class="se">\\\&#39;</span><span class="s1">_static/maps/([^</span><span class="se">\&#39;</span><span class="s1">]+)</span><span class="se">\\\&#39;</span><span class="s1">, 1\) \}\}&quot;&#39;</span><span class="p">,</span>
+        <span class="sa">r</span><span class="s1">&#39;src=&quot;../_static/maps/\1&quot;&#39;</span><span class="p">,</span>
+        <span class="n">content</span>
+    <span class="p">)</span>
+    
+    <span class="c1"># Fix image sources</span>
+    <span class="n">content</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span>
+        <span class="sa">r</span><span class="s1">&#39;src=&quot;\{\{ pathto\(</span><span class="se">\\\&#39;</span><span class="s1">_static/images/([^</span><span class="se">\&#39;</span><span class="s1">]+)</span><span class="se">\\\&#39;</span><span class="s1">, 1\) \}\}&quot;&#39;</span><span class="p">,</span>
+        <span class="sa">r</span><span class="s1">&#39;src=&quot;../_static/images/\1&quot;&#39;</span><span class="p">,</span>
+        <span class="n">content</span>
+    <span class="p">)</span>
+    
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="kc">True</span>
+
+<span class="c1"># Process all markdown files</span>
+<span class="n">markdown_files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;content/*.md&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">file_path</span> <span class="ow">in</span> <span class="n">markdown_files</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Fixing references in </span><span class="si">{</span><span class="n">file_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">fix_path_references</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;All files updated. Now rebuild your JupyterBook.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fixing references in content/ecuador.md
+Fixing references in content/colombia.md
+Fixing references in content/chile.md
+Fixing references in content/index.md
+Fixing references in content/argentina.md
+Fixing references in content/peru.md
+Fixing references in content/bolivia.md
+Fixing references in content/patagonia.md
+All files updated. Now rebuild your JupyterBook.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="step-4-verify-your-assets-are-correctly-copied">
+<h2>Step 4: Verify Your Assets Are Correctly Copied<a class="headerlink" href="#step-4-verify-your-assets-are-correctly-copied" title="Link to this heading">#</a></h2>
+<p>After running the build, check if your assets are properly copied to the _build/html/_static directory:</p>
+<p>Look for a directory structure like:</p>
+<p>_build/html/_static/maps/block_1_map.html
+_build/html/_static/images/block_1_elevation.png</p>
+</section>
+<section id="step-5-rebuild-and-test">
+<h2>Step 5: Rebuild and Test<a class="headerlink" href="#step-5-rebuild-and-test" title="Link to this heading">#</a></h2>
+<p>After making these changes:</p>
+<p>Clean your build: jupyter-book clean .
+Rebuild: jupyter-book build .
+Check the results in your browser</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 5. Clean and rebuild the JupyterBook</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Cleaning previous build...&quot;</span><span class="p">)</span>
+<span class="o">!</span>jupyter-book<span class="w"> </span>clean<span class="w"> </span>.
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Rebuilding JupyterBook...&quot;</span><span class="p">)</span>
+<span class="o">!</span>jupyter-book<span class="w"> </span>build<span class="w"> </span>.
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Build complete! Check your book at _build/html/index.html&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning previous build...
+
+===============================================================================
+
+Your _build directory has been emptied except for .jupyter_cache
+
+===============================================================================
+
+
+Rebuilding JupyterBook...
+<span class=" -Color -Color-Bold -Color-Bold-Green">Running Jupyter-Book v1.0.4.post0</span>
+<span class=" -Color -Color-Bold -Color-Bold-Blue">Source Folder: </span>/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book
+<span class=" -Color -Color-Bold -Color-Bold-Blue">Config Path: </span>/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/_config.yml
+<span class=" -Color -Color-Bold -Color-Bold-Blue">Output Path: </span>/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/_build/html
+<span class=" -Color -Color-Bold">Running Sphinx v7.3.7</span>
+/Users/mike/opt/anaconda3/lib/python3.9/site-packages/sphinxcontrib/applehelp/__init__.py:24: RemovedInSphinx80Warning: The alias &#39;sphinx.util.SkipProgressMessage&#39; is deprecated, use &#39;sphinx.util.display.SkipProgressMessage&#39; instead. Check CHANGES for Sphinx API modifications.
+  from sphinx.util import SkipProgressMessage, progress_message
+/Users/mike/opt/anaconda3/lib/python3.9/site-packages/sphinxcontrib/applehelp/__init__.py:24: RemovedInSphinx80Warning: The alias &#39;sphinx.util.progress_message&#39; is deprecated, use &#39;sphinx.util.display.progress_message&#39; instead. Check CHANGES for Sphinx API modifications.
+  from sphinx.util import SkipProgressMessage, progress_message
+/Users/mike/opt/anaconda3/lib/python3.9/site-packages/sphinxcontrib/htmlhelp/__init__.py:26: RemovedInSphinx80Warning: The alias &#39;sphinx.util.progress_message&#39; is deprecated, use &#39;sphinx.util.display.progress_message&#39; instead. Check CHANGES for Sphinx API modifications.
+  from sphinx.util import progress_message
+<span class=" -Color -Color-Bold">making output directory... </span>done
+[etoc] Changing master_doc to &#39;content/index&#39;
+<span class=" -Color -Color-Bold">myst v3.0.1:</span> MdParserConfig(commonmark_only=False, gfm_only=False, enable_extensions={&#39;colon_fence&#39;, &#39;dollarmath&#39;, &#39;substitution&#39;, &#39;linkify&#39;, &#39;tasklist&#39;}, disable_syntax=[], all_links_external=False, links_external_new_tab=False, url_schemes=(&#39;mailto&#39;, &#39;http&#39;, &#39;https&#39;), ref_domains=None, fence_as_directive=set(), number_code_blocks=[], title_to_header=False, heading_anchors=0, heading_slug_func=None, html_meta={}, footnote_transition=True, words_per_minute=200, substitutions={}, linkify_fuzzy_links=True, dmath_allow_labels=True, dmath_allow_space=True, dmath_allow_digits=True, dmath_double_inline=False, update_mathjax=True, mathjax_classes=&#39;tex2jax_process|mathjax_process|math|output_area&#39;, enable_checkboxes=False, suppress_warnings=[], highlight_code_blocks=True)
+<span class=" -Color -Color-Bold">myst-nb v1.2.0:</span> NbParserConfig(custom_formats={}, metadata_key=&#39;mystnb&#39;, cell_metadata_key=&#39;mystnb&#39;, kernel_rgx_aliases={}, eval_name_regex=&#39;^[a-zA-Z_][a-zA-Z0-9_]*$&#39;, execution_mode=&#39;off&#39;, execution_cache_path=&#39;&#39;, execution_excludepatterns=[], execution_timeout=30, execution_in_temp=False, execution_allow_errors=False, execution_raise_on_error=False, execution_show_tb=False, merge_streams=False, render_plugin=&#39;default&#39;, remove_code_source=False, remove_code_outputs=False, code_prompt_show=&#39;Show code cell {type}&#39;, code_prompt_hide=&#39;Hide code cell {type}&#39;, number_source_lines=False, output_stderr=&#39;show&#39;, render_text_lexer=&#39;myst-ansi&#39;, render_error_lexer=&#39;ipythontb&#39;, render_image_options={}, render_figure_options={}, render_markdown_format=&#39;commonmark&#39;, output_folder=&#39;build&#39;, append_css=True, metadata_to_fm=False)
+Using jupyter-cache at: /Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/_build/.jupyter_cache
+<span class=" -Color -Color-Bold">sphinx-multitoc-numbering v0.1.3:</span> Loaded
+<span class=" -Color -Color-Bold">building [mo]: </span>targets for 0 po files that are out of date
+<span class=" -Color -Color-Bold">writing output... </span>
+<span class=" -Color -Color-Bold">building [html]: </span>targets for 10 source files that are out of date
+<span class=" -Color -Color-Bold">updating environment: </span>[new config] 10 added, 0 changed, 0 removed
+<span class=" -Color -Color-Bold">reading sources... </span>[100%] <span class=" -Color -Color-Magenta">content/peru</span>9;00mization
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/content/index.md:9: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/content/index.md:15: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/content/index.md:70: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/content/index.md:97: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/content/index.md:105: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/content/index.md:113: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/content/index.md:121: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/content/index.md:129: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/content/index.md:137: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/content/index.md:146: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/content/notebooks/kml_visualization.ipynb:20002: WARNING: No source code lexer found for notebook cell 2 [myst-nb.lexer]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/content/notebooks/kml_visualization.ipynb:40002: WARNING: No source code lexer found for notebook cell 4 [myst-nb.lexer]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/content/notebooks/kml_visualization.ipynb:60002: WARNING: No source code lexer found for notebook cell 6 [myst-nb.lexer]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/content/notebooks/kml_visualization.ipynb:80002: WARNING: No source code lexer found for notebook cell 8 [myst-nb.lexer]
+<span class=" -Color -Color-Bold">looking for now-outdated files... </span>none found
+<span class=" -Color -Color-Bold">pickling environment... </span>done
+<span class=" -Color -Color-Bold">checking consistency... </span>/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/JupyterBookBuildProcess.ipynb: WARNING: document isn&#39;t included in any toctree
+done
+<span class=" -Color -Color-Bold">preparing documents... </span>done
+<span class=" -Color -Color-Bold">copying assets... copying static files... </span>done
+<span class=" -Color -Color-Bold">copying extra files... </span>done
+done
+<span class=" -Color -Color-Bold">writing output... </span>[100%] <span class=" -Color -Color-Green">content/peru</span>9;00mization
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/JupyterBookBuildProcess.ipynb:80002: WARNING: Lexing literal_block &quot;# Successful build 2025-02-27\n```\nBuilding JupyterBook...\nRunning Jupyter-Book v1.0.4.post0\n...\n===============================================================================\n\nFinished generating HTML for book.\nYour book&#39;s HTML pages are here:\n    _build/html/\nYou can look at your book by opening this file in a browser:\n    _build/html/index.html\nOr paste this line directly into your browser bar:\n    file:///Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/_build/html/index.html            \n\n===============================================================================\n&quot; as &quot;ipython3&quot; resulted in an error at token: &#39;`&#39;. Retrying in relaxed mode.
+<span class=" -Color -Color-Bold">generating indices... </span>genindex done
+<span class=" -Color -Color-Bold">writing additional pages... </span>search done
+<span class=" -Color -Color-Bold">copying images... </span>[100%] <span class=" -Color -Color-Yellow">content/assets/images/weekly_summary_large_text.png</span>
+<span class=" -Color -Color-Bold">dumping search index in English (code: en)... </span>done
+<span class=" -Color -Color-Bold">dumping object inventory... </span>done
+[etoc] missing index.html written as redirect to &#39;content/index.html&#39;
+<span class=" -Color -Color-Bold">build succeeded, 16 warnings.</span>
+
+The HTML pages are in _build/html.
+
+===============================================================================
+
+Finished generating HTML for book.
+Your book&#39;s HTML pages are here:
+    _build/html/
+You can look at your book by opening this file in a browser:
+    _build/html/index.html
+Or paste this line directly into your browser bar:
+    file:///Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/_build/html/index.html            
+
+===============================================================================
+
+
+Build complete! Check your book at _build/html/index.html
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 7. Open the Built Book (Optional)</span>
+<span class="c1"># -------------------------------</span>
+<span class="c1"># This command will open the built book in your default browser (works on macOS)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Opening built book in browser...&quot;</span><span class="p">)</span>
+<span class="o">!</span>open<span class="w"> </span>_build/html/index.html<span class="w">  </span>#<span class="w"> </span>Use<span class="w"> </span><span class="s1">&#39;start&#39;</span><span class="w"> </span>on<span class="w"> </span>Windows<span class="w"> </span>or<span class="w"> </span><span class="s1">&#39;xdg-open&#39;</span><span class="w"> </span>on<span class="w"> </span>Linux
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Opening built book in browser...
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="creating-a-clean-jupyterbook-structure">
+<h2>Creating a Clean JupyterBook Structure<a class="headerlink" href="#creating-a-clean-jupyterbook-structure" title="Link to this heading">#</a></h2>
+<p>I’ll help you organize your JupyterBook project with the recommended structure, keeping assets organized by type. Let’s break this down into clear steps.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>your_book/
+├── _config.yml
+├── _toc.yml
+├── _static/           # All static assets go here
+│   ├── images/        # Images used throughout the book
+│   └── maps/          # Interactive HTML maps
+├── intro.md           # Book introduction
+├── colombia.md        # Country chapters
+├── ecuador.md
+├── peru.md
+└── notebooks/         # Jupyter notebooks for analysis
+    └── kml_analysis.ipynb
+</pre></div>
+</div>
+<section id="step-1-set-up-the-basic-directory-structure">
+<h3>Step 1: Set Up the Basic Directory Structure<a class="headerlink" href="#step-1-set-up-the-basic-directory-structure" title="Link to this heading">#</a></h3>
+<p>First, you’ll need to create the recommended directory structure. Here’s how to do it:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># South America Expedition JupyterBook Reorganization Script</span>
+<span class="c1"># ==========================================================</span>
+<span class="c1"># This script reorganizes your JupyterBook project structure for better maintainability.</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">glob</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">shutil</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">yaml</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="c1"># Function to create directories if they don&#39;t exist</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">ensure_directory</span><span class="p">(</span><span class="n">directory</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">directory</span><span class="p">):</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Created directory: </span><span class="si">{</span><span class="n">directory</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">directory</span>
+
+<span class="c1"># Step 1: Create the new directory structure</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Step 1: Creating new directory structure...&quot;</span><span class="p">)</span>
+<span class="n">ensure_directory</span><span class="p">(</span><span class="s2">&quot;_static/images&quot;</span><span class="p">)</span>
+<span class="n">ensure_directory</span><span class="p">(</span><span class="s2">&quot;_static/maps&quot;</span><span class="p">)</span>
+<span class="n">ensure_directory</span><span class="p">(</span><span class="s2">&quot;_static/videos&quot;</span><span class="p">)</span>
+<span class="n">ensure_directory</span><span class="p">(</span><span class="s2">&quot;notebooks&quot;</span><span class="p">)</span>
+
+<span class="c1"># Step 2: Move content files to root level</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Step 2: Moving markdown files to root level...&quot;</span><span class="p">)</span>
+<span class="n">markdown_files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;content/*.md&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">file_path</span> <span class="ow">in</span> <span class="n">markdown_files</span><span class="p">:</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">filename</span> <span class="o">==</span> <span class="s2">&quot;index.md&quot;</span><span class="p">:</span>
+        <span class="c1"># Rename index.md to intro.md</span>
+        <span class="n">shutil</span><span class="o">.</span><span class="n">copy2</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s2">&quot;intro.md&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Copied </span><span class="si">{</span><span class="n">file_path</span><span class="si">}</span><span class="s2"> to intro.md&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Copy other files with their original names</span>
+        <span class="n">shutil</span><span class="o">.</span><span class="n">copy2</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Copied </span><span class="si">{</span><span class="n">file_path</span><span class="si">}</span><span class="s2"> to </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step 1: Creating new directory structure...
+Created directory: _static/images
+Created directory: _static/maps
+Created directory: _static/videos
+Created directory: notebooks
+
+Step 2: Moving markdown files to root level...
+  Copied content/ecuador.md to ecuador.md
+  Copied content/colombia.md to colombia.md
+  Copied content/chile.md to chile.md
+  Copied content/index.md to intro.md
+  Copied content/argentina.md to argentina.md
+  Copied content/peru.md to peru.md
+  Copied content/bolivia.md to bolivia.md
+  Copied content/patagonia.md to patagonia.md
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Step</span> <span class="mi">1</span><span class="p">:</span> <span class="n">Creating</span> <span class="n">new</span> <span class="n">directory</span> <span class="n">structure</span><span class="o">...</span>
+<span class="n">Created</span> <span class="n">directory</span><span class="p">:</span> <span class="n">_static</span><span class="o">/</span><span class="n">images</span>
+<span class="n">Created</span> <span class="n">directory</span><span class="p">:</span> <span class="n">_static</span><span class="o">/</span><span class="n">maps</span>
+<span class="n">Created</span> <span class="n">directory</span><span class="p">:</span> <span class="n">_static</span><span class="o">/</span><span class="n">videos</span>
+<span class="n">Created</span> <span class="n">directory</span><span class="p">:</span> <span class="n">notebooks</span>
+
+<span class="n">Step</span> <span class="mi">2</span><span class="p">:</span> <span class="n">Moving</span> <span class="n">markdown</span> <span class="n">files</span> <span class="n">to</span> <span class="n">root</span> <span class="n">level</span><span class="o">...</span>
+  <span class="n">Copied</span> <span class="n">content</span><span class="o">/</span><span class="n">ecuador</span><span class="o">.</span><span class="n">md</span> <span class="n">to</span> <span class="n">ecuador</span><span class="o">.</span><span class="n">md</span>
+  <span class="n">Copied</span> <span class="n">content</span><span class="o">/</span><span class="n">colombia</span><span class="o">.</span><span class="n">md</span> <span class="n">to</span> <span class="n">colombia</span><span class="o">.</span><span class="n">md</span>
+  <span class="n">Copied</span> <span class="n">content</span><span class="o">/</span><span class="n">chile</span><span class="o">.</span><span class="n">md</span> <span class="n">to</span> <span class="n">chile</span><span class="o">.</span><span class="n">md</span>
+  <span class="n">Copied</span> <span class="n">content</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">md</span> <span class="n">to</span> <span class="n">intro</span><span class="o">.</span><span class="n">md</span>
+  <span class="n">Copied</span> <span class="n">content</span><span class="o">/</span><span class="n">argentina</span><span class="o">.</span><span class="n">md</span> <span class="n">to</span> <span class="n">argentina</span><span class="o">.</span><span class="n">md</span>
+  <span class="n">Copied</span> <span class="n">content</span><span class="o">/</span><span class="n">peru</span><span class="o">.</span><span class="n">md</span> <span class="n">to</span> <span class="n">peru</span><span class="o">.</span><span class="n">md</span>
+  <span class="n">Copied</span> <span class="n">content</span><span class="o">/</span><span class="n">bolivia</span><span class="o">.</span><span class="n">md</span> <span class="n">to</span> <span class="n">bolivia</span><span class="o">.</span><span class="n">md</span>
+  <span class="n">Copied</span> <span class="n">content</span><span class="o">/</span><span class="n">patagonia</span><span class="o">.</span><span class="n">md</span> <span class="n">to</span> <span class="n">patagonia</span><span class="o">.</span><span class="n">md</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Step 3: Move notebooks</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Step 3: Moving notebooks...&quot;</span><span class="p">)</span>
+<span class="n">notebook_files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;content/notebooks/*.ipynb&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">file_path</span> <span class="ow">in</span> <span class="n">notebook_files</span><span class="p">:</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+    <span class="n">dest_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;notebooks&quot;</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+    <span class="n">shutil</span><span class="o">.</span><span class="n">copy2</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">dest_path</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Copied </span><span class="si">{</span><span class="n">file_path</span><span class="si">}</span><span class="s2"> to </span><span class="si">{</span><span class="n">dest_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Step 4: Move assets</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Step 4: Moving assets...&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">&quot;content/assets/images&quot;</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">image_file</span> <span class="ow">in</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;content/assets/images/*&quot;</span><span class="p">):</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">image_file</span><span class="p">)</span>
+        <span class="n">dest_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;_static/images&quot;</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+        <span class="n">shutil</span><span class="o">.</span><span class="n">copy2</span><span class="p">(</span><span class="n">image_file</span><span class="p">,</span> <span class="n">dest_path</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Copied </span><span class="si">{</span><span class="n">image_file</span><span class="si">}</span><span class="s2"> to </span><span class="si">{</span><span class="n">dest_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">&quot;content/assets/maps&quot;</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">map_file</span> <span class="ow">in</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;content/assets/maps/*&quot;</span><span class="p">):</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">map_file</span><span class="p">)</span>
+        <span class="n">dest_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;_static/maps&quot;</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+        <span class="n">shutil</span><span class="o">.</span><span class="n">copy2</span><span class="p">(</span><span class="n">map_file</span><span class="p">,</span> <span class="n">dest_path</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Copied </span><span class="si">{</span><span class="n">map_file</span><span class="si">}</span><span class="s2"> to </span><span class="si">{</span><span class="n">dest_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step 3: Moving notebooks...
+  Copied content/notebooks/kml_visualization.ipynb to notebooks/kml_visualization.ipynb
+
+Step 4: Moving assets...
+  Copied content/assets/images/block_17_elevation.png to _static/images/block_17_elevation.png
+  Copied content/assets/images/block_6_elevation.png to _static/images/block_6_elevation.png
+  Copied content/assets/images/block_2_elevation.png to _static/images/block_2_elevation.png
+  Copied content/assets/images/block_13_elevation.png to _static/images/block_13_elevation.png
+  Copied content/assets/images/block_5_elevation.png to _static/images/block_5_elevation.png
+  Copied content/assets/images/block_14_elevation.png to _static/images/block_14_elevation.png
+  Copied content/assets/images/block_10_elevation.png to _static/images/block_10_elevation.png
+  Copied content/assets/images/block_1_elevation.png to _static/images/block_1_elevation.png
+  Copied content/assets/images/block_23_elevation.png to _static/images/block_23_elevation.png
+  Copied content/assets/images/block_27_elevation.png to _static/images/block_27_elevation.png
+  Copied content/assets/images/block_20_elevation.png to _static/images/block_20_elevation.png
+  Copied content/assets/images/block_19_elevation.png to _static/images/block_19_elevation.png
+  Copied content/assets/images/block_8_elevation.png to _static/images/block_8_elevation.png
+  Copied content/assets/images/block_24_elevation.png to _static/images/block_24_elevation.png
+  Copied content/assets/images/weekly_summary copy.png to _static/images/weekly_summary copy.png
+  Copied content/assets/images/block_25_elevation.png to _static/images/block_25_elevation.png
+  Copied content/assets/images/block_9_elevation.png to _static/images/block_9_elevation.png
+  Copied content/assets/images/block_18_elevation.png to _static/images/block_18_elevation.png
+  Copied content/assets/images/block_21_elevation.png to _static/images/block_21_elevation.png
+  Copied content/assets/images/block_26_elevation.png to _static/images/block_26_elevation.png
+  Copied content/assets/images/block_22_elevation.png to _static/images/block_22_elevation.png
+  Copied content/assets/images/block_11_elevation.png to _static/images/block_11_elevation.png
+  Copied content/assets/images/block_15_elevation.png to _static/images/block_15_elevation.png
+  Copied content/assets/images/block_4_elevation.png to _static/images/block_4_elevation.png
+  Copied content/assets/images/block_12_elevation.png to _static/images/block_12_elevation.png
+  Copied content/assets/images/block_3_elevation.png to _static/images/block_3_elevation.png
+  Copied content/assets/images/block_7_elevation.png to _static/images/block_7_elevation.png
+  Copied content/assets/images/block_16_elevation.png to _static/images/block_16_elevation.png
+  Copied content/assets/images/weekly_summary_large_text.png to _static/images/weekly_summary_large_text.png
+  Copied content/assets/maps/block_5_map.html to _static/maps/block_5_map.html
+  Copied content/assets/maps/block_4_map.html to _static/maps/block_4_map.html
+  Copied content/assets/maps/block_25_map.html to _static/maps/block_25_map.html
+  Copied content/assets/maps/block_24_map.html to _static/maps/block_24_map.html
+  Copied content/assets/maps/block_11_map.html to _static/maps/block_11_map.html
+  Copied content/assets/maps/block_10_map.html to _static/maps/block_10_map.html
+  Copied content/assets/maps/block_2_map.html to _static/maps/block_2_map.html
+  Copied content/assets/maps/block_3_map.html to _static/maps/block_3_map.html
+  Copied content/assets/maps/block_22_map.html to _static/maps/block_22_map.html
+  Copied content/assets/maps/block_23_map.html to _static/maps/block_23_map.html
+  Copied content/assets/maps/sae_all_rides_map.html to _static/maps/sae_all_rides_map.html
+  Copied content/assets/maps/block_16_map.html to _static/maps/block_16_map.html
+  Copied content/assets/maps/block_17_map.html to _static/maps/block_17_map.html
+  Copied content/assets/maps/block_8_map.html to _static/maps/block_8_map.html
+  Copied content/assets/maps/block_9_map.html to _static/maps/block_9_map.html
+  Copied content/assets/maps/block_12_map.html to _static/maps/block_12_map.html
+  Copied content/assets/maps/block_13_map.html to _static/maps/block_13_map.html
+  Copied content/assets/maps/block_18_map.html to _static/maps/block_18_map.html
+  Copied content/assets/maps/block_19_map.html to _static/maps/block_19_map.html
+  Copied content/assets/maps/block_6_map.html to _static/maps/block_6_map.html
+  Copied content/assets/maps/block_7_map.html to _static/maps/block_7_map.html
+  Copied content/assets/maps/block_26_map.html to _static/maps/block_26_map.html
+  Copied content/assets/maps/block_27_map.html to _static/maps/block_27_map.html
+  Copied content/assets/maps/block_15_map.html to _static/maps/block_15_map.html
+  Copied content/assets/maps/block_14_map.html to _static/maps/block_14_map.html
+  Copied content/assets/maps/block_1_map.html to _static/maps/block_1_map.html
+  Copied content/assets/maps/block_21_map.html to _static/maps/block_21_map.html
+  Copied content/assets/maps/block_20_map.html to _static/maps/block_20_map.html
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Step 5: Update path references in markdown files</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Step 5: Updating asset references in markdown files...&quot;</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">update_file_paths</span><span class="p">(</span><span class="n">file_path</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">content</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    
+    <span class="c1"># Track replacements</span>
+    <span class="n">replacements</span> <span class="o">=</span> <span class="mi">0</span>
+    
+    <span class="c1"># Update map references - handle both ../_static and {{ pathto }} formats</span>
+    <span class="n">pattern1</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;src=&quot;\.\./_static/maps/&#39;</span>
+    <span class="n">replacement1</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;src=&quot;_static/maps/&#39;</span>
+    <span class="n">content_new</span><span class="p">,</span> <span class="n">count1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">subn</span><span class="p">(</span><span class="n">pattern1</span><span class="p">,</span> <span class="n">replacement1</span><span class="p">,</span> <span class="n">content</span><span class="p">)</span>
+    <span class="n">replacements</span> <span class="o">+=</span> <span class="n">count1</span>
+    
+    <span class="n">pattern2</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;src=&quot;\{\{ pathto\(</span><span class="se">\\\&#39;</span><span class="s1">_static/maps/&#39;</span>
+    <span class="n">replacement2</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;src=&quot;_static/maps/&#39;</span>
+    <span class="n">content_new</span><span class="p">,</span> <span class="n">count2</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">subn</span><span class="p">(</span><span class="n">pattern2</span><span class="p">,</span> <span class="n">replacement2</span><span class="p">,</span> <span class="n">content_new</span><span class="p">)</span>
+    <span class="n">replacements</span> <span class="o">+=</span> <span class="n">count2</span>
+    
+    <span class="c1"># Update image references</span>
+    <span class="n">pattern3</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;src=&quot;\.\./_static/images/&#39;</span>
+    <span class="n">replacement3</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;src=&quot;_static/images/&#39;</span>
+    <span class="n">content_new</span><span class="p">,</span> <span class="n">count3</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">subn</span><span class="p">(</span><span class="n">pattern3</span><span class="p">,</span> <span class="n">replacement3</span><span class="p">,</span> <span class="n">content_new</span><span class="p">)</span>
+    <span class="n">replacements</span> <span class="o">+=</span> <span class="n">count3</span>
+    
+    <span class="n">pattern4</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;src=&quot;\{\{ pathto\(</span><span class="se">\\\&#39;</span><span class="s1">_static/images/&#39;</span>
+    <span class="n">replacement4</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;src=&quot;_static/images/&#39;</span>
+    <span class="n">content_new</span><span class="p">,</span> <span class="n">count4</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">subn</span><span class="p">(</span><span class="n">pattern4</span><span class="p">,</span> <span class="n">replacement4</span><span class="p">,</span> <span class="n">content_new</span><span class="p">)</span>
+    <span class="n">replacements</span> <span class="o">+=</span> <span class="n">count4</span>
+    
+    <span class="c1"># Update any markdown image references</span>
+    <span class="n">pattern5</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;!\[(.*?)\]\(\.\./_static/images/&#39;</span>
+    <span class="n">replacement5</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;![\1](_static/images/&#39;</span>
+    <span class="n">content_new</span><span class="p">,</span> <span class="n">count5</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">subn</span><span class="p">(</span><span class="n">pattern5</span><span class="p">,</span> <span class="n">replacement5</span><span class="p">,</span> <span class="n">content_new</span><span class="p">)</span>
+    <span class="n">replacements</span> <span class="o">+=</span> <span class="n">count5</span>
+    
+    <span class="c1"># Write the updated content back to the file</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">content_new</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">replacements</span>
+
+<span class="c1"># Process all markdown files at root level</span>
+<span class="n">all_md_files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;*.md&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">file_path</span> <span class="ow">in</span> <span class="n">all_md_files</span><span class="p">:</span>
+    <span class="n">replacements</span> <span class="o">=</span> <span class="n">update_file_paths</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Updated </span><span class="si">{</span><span class="n">file_path</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">replacements</span><span class="si">}</span><span class="s2"> replacements&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step 5: Updating asset references in markdown files...
+  Updated ecuador.md: 4 replacements
+  Updated colombia.md: 12 replacements
+  Updated chile.md: 3 replacements
+  Updated intro.md: 2 replacements
+  Updated argentina.md: 4 replacements
+  Updated peru.md: 5 replacements
+  Updated bolivia.md: 2 replacements
+  Updated patagonia.md: 4 replacements
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Step 6: Update _config.yml</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Step 6: Updating _config.yml...&quot;</span><span class="p">)</span>
+<span class="n">config_path</span> <span class="o">=</span> <span class="s2">&quot;_config.yml&quot;</span>
+<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">config_path</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">config_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">config</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    
+    <span class="c1"># Add or update the sphinx configuration</span>
+    <span class="k">if</span> <span class="s1">&#39;sphinx&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">config</span><span class="p">:</span>
+        <span class="n">config</span><span class="p">[</span><span class="s1">&#39;sphinx&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;config&#39;</span><span class="p">:</span> <span class="p">{}}</span>
+    <span class="k">if</span> <span class="s1">&#39;config&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;sphinx&#39;</span><span class="p">]:</span>
+        <span class="n">config</span><span class="p">[</span><span class="s1">&#39;sphinx&#39;</span><span class="p">][</span><span class="s1">&#39;config&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+    
+    <span class="c1"># Update static path settings</span>
+    <span class="n">config</span><span class="p">[</span><span class="s1">&#39;sphinx&#39;</span><span class="p">][</span><span class="s1">&#39;config&#39;</span><span class="p">][</span><span class="s1">&#39;html_static_path&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;_static&#39;</span><span class="p">]</span>
+    
+    <span class="c1"># Remove old html_extra_path if it exists</span>
+    <span class="k">if</span> <span class="s1">&#39;html_extra_path&#39;</span> <span class="ow">in</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;sphinx&#39;</span><span class="p">][</span><span class="s1">&#39;config&#39;</span><span class="p">]:</span>
+        <span class="k">del</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;sphinx&#39;</span><span class="p">][</span><span class="s1">&#39;config&#39;</span><span class="p">][</span><span class="s1">&#39;html_extra_path&#39;</span><span class="p">]</span>
+    
+    <span class="c1"># Write the updated configuration back</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">config_path</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">yaml</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">file</span><span class="p">,</span> <span class="n">default_flow_style</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Updated </span><span class="si">{</span><span class="n">config_path</span><span class="si">}</span><span class="s2"> with new static path configuration&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Warning: Could not find </span><span class="si">{</span><span class="n">config_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Step 7: Update _toc.yml</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Step 7: Updating _toc.yml...&quot;</span><span class="p">)</span>
+<span class="n">toc_path</span> <span class="o">=</span> <span class="s2">&quot;_toc.yml&quot;</span>
+<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">toc_path</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">toc_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">toc_content</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    
+    <span class="c1"># Replace content/ references with root references</span>
+    <span class="n">toc_content</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;file: content/&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;file: &#39;</span><span class="p">,</span> <span class="n">toc_content</span><span class="p">)</span>
+    
+    <span class="c1"># If the root is set to content/index.md, change it to intro.md</span>
+    <span class="n">toc_content</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;root: content/index&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;root: intro&#39;</span><span class="p">,</span> <span class="n">toc_content</span><span class="p">)</span>
+    
+    <span class="c1"># Write the updated TOC back</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">toc_path</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">toc_content</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Updated </span><span class="si">{</span><span class="n">toc_path</span><span class="si">}</span><span class="s2"> with new file paths&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Warning: Could not find </span><span class="si">{</span><span class="n">toc_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step 6: Updating _config.yml...
+  Updated _config.yml with new static path configuration
+
+Step 7: Updating _toc.yml...
+  Updated _toc.yml with new file paths
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Step 8: Clean up (optional, uncomment to use)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Step 8: Cleanup...&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  Note: This script does not delete original files. You can manually remove them after verifying the new structure works correctly.&quot;</span><span class="p">)</span>
+<span class="c1"># Uncomment these lines if you want the script to remove old files after confirming the new structure</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">confirm = input(&quot;Would you like to remove the original content directory? (yes/no): &quot;)</span>
+<span class="sd">if confirm.lower() == &#39;yes&#39;:</span>
+<span class="sd">    shutil.rmtree(&#39;content&#39;)</span>
+<span class="sd">    print(&quot;  Removed content directory&quot;)</span>
+<span class="sd">else:</span>
+<span class="sd">    print(&quot;  Kept original content directory for reference&quot;)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># Step 9: Build the JupyterBook (optional)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Step 9: Building the JupyterBook...&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  Would you like to build the JupyterBook now to test the new structure?&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  You can do this manually later with: jupyter-book clean . &amp;&amp; jupyter-book build .&quot;</span><span class="p">)</span>
+<span class="c1"># Uncomment these lines if you want the script to build the book automatically</span>
+
+<span class="n">confirm</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Build the book now? (yes/no): &quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">confirm</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;yes&#39;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  Cleaning previous build...&quot;</span><span class="p">)</span>
+    <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s1">&#39;jupyter-book&#39;</span><span class="p">,</span> <span class="s1">&#39;clean&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  Building JupyterBook...&quot;</span><span class="p">)</span>
+    <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s1">&#39;jupyter-book&#39;</span><span class="p">,</span> <span class="s1">&#39;build&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  Book built successfully. Check _build/html/index.html&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  Skipping book build&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Reorganization complete! Your JupyterBook now has a cleaner structure with:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;- Markdown files at the root level&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;- All static assets in _static/&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;- Notebooks in notebooks/&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;- Consistent path references throughout&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step 8: Cleanup...
+  Note: This script does not delete original files. You can manually remove them after verifying the new structure works correctly.
+
+Step 9: Building the JupyterBook...
+  Would you like to build the JupyterBook now to test the new structure?
+  You can do this manually later with: jupyter-book clean . &amp;&amp; jupyter-book build .
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Cleaning previous build...
+
+===============================================================================
+
+Your _build directory has been emptied except for .jupyter_cache
+
+===============================================================================
+
+  Building JupyterBook...
+Running Jupyter-Book v1.0.4.post0
+Source Folder: /Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book
+Config Path: /Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/_config.yml
+Output Path: /Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/_build/html
+<span class=" -Color -Color-Bold">Running Sphinx v7.3.7</span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/mike/opt/anaconda3/lib/python3.9/site-packages/sphinxcontrib/applehelp/__init__.py:24: RemovedInSphinx80Warning: The alias &#39;sphinx.util.SkipProgressMessage&#39; is deprecated, use &#39;sphinx.util.display.SkipProgressMessage&#39; instead. Check CHANGES for Sphinx API modifications.
+  from sphinx.util import SkipProgressMessage, progress_message
+/Users/mike/opt/anaconda3/lib/python3.9/site-packages/sphinxcontrib/applehelp/__init__.py:24: RemovedInSphinx80Warning: The alias &#39;sphinx.util.progress_message&#39; is deprecated, use &#39;sphinx.util.display.progress_message&#39; instead. Check CHANGES for Sphinx API modifications.
+  from sphinx.util import SkipProgressMessage, progress_message
+/Users/mike/opt/anaconda3/lib/python3.9/site-packages/sphinxcontrib/htmlhelp/__init__.py:26: RemovedInSphinx80Warning: The alias &#39;sphinx.util.progress_message&#39; is deprecated, use &#39;sphinx.util.display.progress_message&#39; instead. Check CHANGES for Sphinx API modifications.
+  from sphinx.util import progress_message
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">making output directory... </span>done
+[etoc] Changing master_doc to &#39;intro&#39;
+<span class=" -Color -Color-Bold">myst v3.0.1:</span> MdParserConfig(commonmark_only=False, gfm_only=False, enable_extensions={&#39;linkify&#39;, &#39;colon_fence&#39;, &#39;dollarmath&#39;, &#39;tasklist&#39;, &#39;substitution&#39;}, disable_syntax=[], all_links_external=False, links_external_new_tab=False, url_schemes=(&#39;mailto&#39;, &#39;http&#39;, &#39;https&#39;), ref_domains=None, fence_as_directive=set(), number_code_blocks=[], title_to_header=False, heading_anchors=0, heading_slug_func=None, html_meta={}, footnote_transition=True, words_per_minute=200, substitutions={}, linkify_fuzzy_links=True, dmath_allow_labels=True, dmath_allow_space=True, dmath_allow_digits=True, dmath_double_inline=False, update_mathjax=True, mathjax_classes=&#39;tex2jax_process|mathjax_process|math|output_area&#39;, enable_checkboxes=False, suppress_warnings=[], highlight_code_blocks=True)
+<span class=" -Color -Color-Bold">myst-nb v1.2.0:</span> NbParserConfig(custom_formats={}, metadata_key=&#39;mystnb&#39;, cell_metadata_key=&#39;mystnb&#39;, kernel_rgx_aliases={}, eval_name_regex=&#39;^[a-zA-Z_][a-zA-Z0-9_]*$&#39;, execution_mode=&#39;off&#39;, execution_cache_path=&#39;&#39;, execution_excludepatterns=[], execution_timeout=30, execution_in_temp=False, execution_allow_errors=False, execution_raise_on_error=False, execution_show_tb=False, merge_streams=False, render_plugin=&#39;default&#39;, remove_code_source=False, remove_code_outputs=False, code_prompt_show=&#39;Show code cell {type}&#39;, code_prompt_hide=&#39;Hide code cell {type}&#39;, number_source_lines=False, output_stderr=&#39;show&#39;, render_text_lexer=&#39;myst-ansi&#39;, render_error_lexer=&#39;ipythontb&#39;, render_image_options={}, render_figure_options={}, render_markdown_format=&#39;commonmark&#39;, output_folder=&#39;build&#39;, append_css=True, metadata_to_fm=False)
+Using jupyter-cache at: /Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/_build/.jupyter_cache
+<span class=" -Color -Color-Bold">sphinx-multitoc-numbering v0.1.3:</span> Loaded
+<span class=" -Color -Color-Bold">building [mo]: </span>targets for 0 po files that are out of date
+<span class=" -Color -Color-Bold">writing output... </span>
+<span class=" -Color -Color-Bold">building [html]: </span>targets for 19 source files that are out of date
+<span class=" -Color -Color-Bold">updating environment: </span>[new config] 19 added, 0 changed, 0 removed
+<span class=" -Color -Color-Bold">reading sources... </span>[100%] <span class=" -Color -Color-Magenta">peru</span>9;00mization9;49;00m
+<span class=" -Color -Color-Bold">looking for now-outdated files... </span>none found
+<span class=" -Color -Color-Bold">pickling environment... </span>done
+<span class=" -Color -Color-Bold">checking consistency... </span>done
+<span class=" -Color -Color-Bold">preparing documents... </span>done
+<span class=" -Color -Color-Bold">copying assets... copying static files... </span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/content/index.md:9: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/content/index.md:15: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/content/index.md:70: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/content/index.md:97: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/content/index.md:105: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/content/index.md:113: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/content/index.md:121: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/content/index.md:129: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/content/index.md:137: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/content/index.md:146: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/content/notebooks/kml_visualization.ipynb:20002: WARNING: No source code lexer found for notebook cell 2 [myst-nb.lexer]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/content/notebooks/kml_visualization.ipynb:40002: WARNING: No source code lexer found for notebook cell 4 [myst-nb.lexer]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/content/notebooks/kml_visualization.ipynb:60002: WARNING: No source code lexer found for notebook cell 6 [myst-nb.lexer]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/content/notebooks/kml_visualization.ipynb:80002: WARNING: No source code lexer found for notebook cell 8 [myst-nb.lexer]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/intro.md:9: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/intro.md:15: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/intro.md:70: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/intro.md:97: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/intro.md:105: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/intro.md:113: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/intro.md:121: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/intro.md:129: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/intro.md:137: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/intro.md:146: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/intro.md:54: WARNING: image file not readable: assets/images/weekly_summary_large_text.png
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/notebooks/kml_visualization.ipynb:20002: WARNING: No source code lexer found for notebook cell 2 [myst-nb.lexer]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/notebooks/kml_visualization.ipynb:40002: WARNING: No source code lexer found for notebook cell 4 [myst-nb.lexer]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/notebooks/kml_visualization.ipynb:60002: WARNING: No source code lexer found for notebook cell 6 [myst-nb.lexer]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/notebooks/kml_visualization.ipynb:80002: WARNING: No source code lexer found for notebook cell 8 [myst-nb.lexer]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/JupyterBookBuildProcess.ipynb: WARNING: document isn&#39;t included in any toctree
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/content/argentina.md: WARNING: document isn&#39;t included in any toctree
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/content/bolivia.md: WARNING: document isn&#39;t included in any toctree
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/content/chile.md: WARNING: document isn&#39;t included in any toctree
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/content/colombia.md: WARNING: document isn&#39;t included in any toctree
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/content/ecuador.md: WARNING: document isn&#39;t included in any toctree
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/content/index.md: WARNING: document isn&#39;t included in any toctree
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/content/notebooks/kml_visualization.ipynb: WARNING: document isn&#39;t included in any toctree
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/content/patagonia.md: WARNING: document isn&#39;t included in any toctree
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/content/peru.md: WARNING: document isn&#39;t included in any toctree
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done
+<span class=" -Color -Color-Bold">copying extra files... </span>done
+done
+<span class=" -Color -Color-Bold">writing output... </span>[100%] <span class=" -Color -Color-Green">peru</span>9;00mization9;49;00m
+<span class=" -Color -Color-Bold">generating indices... </span>genindex done
+<span class=" -Color -Color-Bold">writing additional pages... </span>search done
+<span class=" -Color -Color-Bold">copying images... </span>[100%] <span class=" -Color -Color-Yellow">content/assets/images/weekly_summary_large_text.png</span>
+<span class=" -Color -Color-Bold">dumping search index in English (code: en)... </span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/JupyterBookBuildProcess.ipynb:80002: WARNING: Lexing literal_block &quot;# Successful build 2025-02-27\n```\nBuilding JupyterBook...\nRunning Jupyter-Book v1.0.4.post0\n...\n===============================================================================\n\nFinished generating HTML for book.\nYour book&#39;s HTML pages are here:\n    _build/html/\nYou can look at your book by opening this file in a browser:\n    _build/html/index.html\nOr paste this line directly into your browser bar:\n    file:///Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/_build/html/index.html            \n\n===============================================================================\n&quot; as &quot;ipython3&quot; resulted in an error at token: &#39;`&#39;. Retrying in relaxed mode.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done
+<span class=" -Color -Color-Bold">dumping object inventory... </span>done
+[etoc] missing index.html written as redirect to &#39;intro.html&#39;
+<span class=" -Color -Color-Bold">build succeeded, 40 warnings.</span>
+
+The HTML pages are in _build/html.
+
+===============================================================================
+
+Finished generating HTML for book.
+Your book&#39;s HTML pages are here:
+    _build/html/
+You can look at your book by opening this file in a browser:
+    _build/html/index.html
+Or paste this line directly into your browser bar:
+    file:///Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/_build/html/index.html            
+
+===============================================================================
+
+  Book built successfully. Check _build/html/index.html
+
+Reorganization complete! Your JupyterBook now has a cleaner structure with:
+- Markdown files at the root level
+- All static assets in _static/
+- Notebooks in notebooks/
+- Consistent path references throughout
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>open<span class="w"> </span>_build/html/index.html
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="creating-responsive-well-aligned-layouts-in-jupyterbook">
+<h2>Creating Responsive, Well-Aligned Layouts in JupyterBook<a class="headerlink" href="#creating-responsive-well-aligned-layouts-in-jupyterbook" title="Link to this heading">#</a></h2>
+<p>I understand your frustration with the alignment issues between your maps and elevation profiles. The HTML table approach you’re using can be tricky to maintain and doesn’t always display consistently across devices. Let’s explore some cleaner approaches that would work well with the proposed new structure.</p>
+</section>
+<section id="the-alignment-problem">
+<h2>The Alignment Problem<a class="headerlink" href="#the-alignment-problem" title="Link to this heading">#</a></h2>
+<p>The core issue is that your iframe (map) and image (elevation profile) have different natural aspect ratios, making them difficult to align perfectly, especially across different screen sizes. When you set the iframe to a fixed height (400px) but allow the image to scale based on its container width, they can become mismatched.</p>
+<section id="solution-1-flexbox-layout-with-consistent-height">
+<h3>Solution 1: Flexbox Layout with Consistent Height<a class="headerlink" href="#solution-1-flexbox-layout-with-consistent-height" title="Link to this heading">#</a></h3>
+<p>A more modern approach would be to use flexbox instead of tables. This gives you better control over alignment and responsiveness:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">div</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;display: flex; flex-wrap: wrap; gap: 10px; align-items: stretch;&quot;</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">div</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;flex: 2; min-width: 300px;&quot;</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">iframe</span> <span class="n">src</span><span class="o">=</span><span class="s2">&quot;_static/maps/block_2_map.html&quot;</span> 
+                <span class="n">style</span><span class="o">=</span><span class="s2">&quot;width: 100%; height: 400px; border: none;&quot;</span>
+                <span class="n">scrolling</span><span class="o">=</span><span class="s2">&quot;no&quot;</span> <span class="n">allowfullscreen</span><span class="o">&gt;&lt;/</span><span class="n">iframe</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">div</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;flex: 3; min-width: 300px; display: flex; align-items: center; justify-content: center;&quot;</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">img</span> <span class="n">src</span><span class="o">=</span><span class="s2">&quot;_static/images/block_2_elevation.png&quot;</span> 
+             <span class="n">alt</span><span class="o">=</span><span class="s2">&quot;Elevation Profile - Block 2&quot;</span> 
+             <span class="n">style</span><span class="o">=</span><span class="s2">&quot;max-width: 100%; max-height: 400px; object-fit: contain;&quot;</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="solution-2-grid-layout-for-more-complex-arrangements">
+<h3>Solution 2: Grid Layout for More Complex Arrangements<a class="headerlink" href="#solution-2-grid-layout-for-more-complex-arrangements" title="Link to this heading">#</a></h3>
+<p>CSS Grid provides even more layout control, which would be helpful when adding photos and videos:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">div</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; align-items: center;&quot;</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">div</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">iframe</span> <span class="n">src</span><span class="o">=</span><span class="s2">&quot;_static/maps/block_2_map.html&quot;</span> 
+                <span class="n">style</span><span class="o">=</span><span class="s2">&quot;width: 100%; height: 400px; border: none;&quot;</span>
+                <span class="n">scrolling</span><span class="o">=</span><span class="s2">&quot;no&quot;</span> <span class="n">allowfullscreen</span><span class="o">&gt;&lt;/</span><span class="n">iframe</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">div</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">img</span> <span class="n">src</span><span class="o">=</span><span class="s2">&quot;_static/images/block_2_elevation.png&quot;</span> 
+             <span class="n">alt</span><span class="o">=</span><span class="s2">&quot;Elevation Profile - Block 2&quot;</span> 
+             <span class="n">style</span><span class="o">=</span><span class="s2">&quot;max-width: 100%; max-height: 400px; object-fit: contain; margin: 0 auto; display: block;&quot;</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="solution-3-myst-markdown-extensions-with-panels">
+<h3>Solution 3: MyST Markdown Extensions with Panels<a class="headerlink" href="#solution-3-myst-markdown-extensions-with-panels" title="Link to this heading">#</a></h3>
+<p>JupyterBook supports MyST Markdown extensions, including panels and tabs, which can create clean layouts without raw HTML:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>````{panels}
+:column: col-6
+:card: border-2
+
+---
+&lt;iframe src=&quot;_static/maps/block_2_map.html&quot; style=&quot;width:100%; height:400px; border:none;&quot;&gt;&lt;/iframe&gt;
+
+---
+![Elevation Profile - Block 2](_static/images/block_2_elevation.png)
+</pre></div>
+</div>
+<p>This creates a two-column layout with equal-sized panels, which maintains consistency across devices.</p>
+</section>
+</section>
+<section id="solution-4-simple-inline-display-with-clear-visual-separation">
+<h2>Solution 4: Simple Inline Display with Clear Visual Separation<a class="headerlink" href="#solution-4-simple-inline-display-with-clear-visual-separation" title="Link to this heading">#</a></h2>
+<p>If you’re open to displaying elements inline (one after another rather than side-by-side), this can be the simplest and most consistently responsive approach:</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># Block 2: Cauca River Valley</span>
+
+<span class="gu">## Interactive Map</span>
+&lt;iframe src=&quot;_static/maps/block_2_map.html&quot; style=&quot;width:100%; height:400px; border:none;&quot;&gt;&lt;/iframe&gt;
+
+<span class="gu">## Elevation Profile</span>
+![<span class="nt">Elevation Profile</span>](<span class="na">_static/images/block_2_elevation.png</span>)
+</pre></div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="clean-and-build">
+<h1>Clean and build<a class="headerlink" href="#clean-and-build" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Clean and build the JupyterBook</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="c1"># Clean previous build files</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cleaning previous build...&quot;</span><span class="p">)</span>
+<span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s1">&#39;jupyter-book&#39;</span><span class="p">,</span> <span class="s1">&#39;clean&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">])</span>
+
+<span class="c1"># Build the book</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Building JupyterBook...&quot;</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s1">&#39;jupyter-book&#39;</span><span class="p">,</span> <span class="s1">&#39;build&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">],</span> <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Print build output</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">stderr</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Errors/Warnings:&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
+
+<span class="c1"># Open the built book if successful</span>
+<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s1">&#39;_build/html/index.html&#39;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Book built successfully!&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># For macOS</span>
+    <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s1">&#39;open&#39;</span><span class="p">,</span> <span class="s1">&#39;_build/html/index.html&#39;</span><span class="p">])</span>
+    
+    <span class="c1"># Uncomment the appropriate line for your operating system if needed</span>
+    <span class="c1"># For Windows: subprocess.run([&#39;start&#39;, &#39;_build/html/index.html&#39;], shell=True)</span>
+    <span class="c1"># For Linux: subprocess.run([&#39;xdg-open&#39;, &#39;_build/html/index.html&#39;])</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Build may have failed. Check the output above for errors.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning previous build...
+
+===============================================================================
+
+Your _build directory has been emptied except for .jupyter_cache
+
+===============================================================================
+
+Building JupyterBook...
+Running Jupyter-Book v1.0.4.post1
+Source Folder: /Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book
+Config Path: /Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/_config.yml
+Output Path: /Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/_build/html
+<span class=" -Color -Color-Bold">Running Sphinx v7.4.7</span>
+<span class=" -Color -Color-Bold">loading translations [en]... </span>done
+<span class=" -Color -Color-Bold">making output directory... </span>done
+[etoc] Changing master_doc to &#39;intro&#39;
+<span class=" -Color -Color-Bold">myst v3.0.1:</span> MdParserConfig(commonmark_only=False, gfm_only=False, enable_extensions={&#39;tasklist&#39;, &#39;colon_fence&#39;, &#39;linkify&#39;, &#39;substitution&#39;, &#39;dollarmath&#39;}, disable_syntax=[], all_links_external=False, links_external_new_tab=False, url_schemes=(&#39;mailto&#39;, &#39;http&#39;, &#39;https&#39;), ref_domains=None, fence_as_directive=set(), number_code_blocks=[], title_to_header=False, heading_anchors=0, heading_slug_func=None, html_meta={}, footnote_transition=True, words_per_minute=200, substitutions={}, linkify_fuzzy_links=True, dmath_allow_labels=True, dmath_allow_space=True, dmath_allow_digits=True, dmath_double_inline=False, update_mathjax=True, mathjax_classes=&#39;tex2jax_process|mathjax_process|math|output_area&#39;, enable_checkboxes=False, suppress_warnings=[], highlight_code_blocks=True)
+<span class=" -Color -Color-Bold">myst-nb v1.2.0:</span> NbParserConfig(custom_formats={}, metadata_key=&#39;mystnb&#39;, cell_metadata_key=&#39;mystnb&#39;, kernel_rgx_aliases={}, eval_name_regex=&#39;^[a-zA-Z_][a-zA-Z0-9_]*$&#39;, execution_mode=&#39;off&#39;, execution_cache_path=&#39;&#39;, execution_excludepatterns=[], execution_timeout=30, execution_in_temp=False, execution_allow_errors=False, execution_raise_on_error=False, execution_show_tb=False, merge_streams=False, render_plugin=&#39;default&#39;, remove_code_source=False, remove_code_outputs=False, code_prompt_show=&#39;Show code cell {type}&#39;, code_prompt_hide=&#39;Hide code cell {type}&#39;, number_source_lines=False, output_stderr=&#39;show&#39;, render_text_lexer=&#39;myst-ansi&#39;, render_error_lexer=&#39;ipythontb&#39;, render_image_options={}, render_figure_options={}, render_markdown_format=&#39;commonmark&#39;, output_folder=&#39;build&#39;, append_css=True, metadata_to_fm=False)
+Using jupyter-cache at: /Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/_build/.jupyter_cache
+<span class=" -Color -Color-Bold">sphinx-multitoc-numbering v0.1.3:</span> Loaded
+<span class=" -Color -Color-Bold">building [mo]: </span>targets for 0 po files that are out of date
+<span class=" -Color -Color-Bold">writing output... </span>
+<span class=" -Color -Color-Bold">building [html]: </span>targets for 11 source files that are out of date
+<span class=" -Color -Color-Bold">updating environment: </span>[new config] 11 added, 0 changed, 0 removed
+<span class=" -Color -Color-Bold">reading sources... </span>[  9%] <span class=" -Color -Color-Magenta">JupyterBookBuildProcess</span>
+<span class=" -Color -Color-Bold">reading sources... </span>[ 18%] <span class=" -Color -Color-Magenta">argentina</span>
+<span class=" -Color -Color-Bold">reading sources... </span>[ 27%] <span class=" -Color -Color-Magenta">bolivia</span>
+<span class=" -Color -Color-Bold">reading sources... </span>[ 36%] <span class=" -Color -Color-Magenta">chile</span>
+<span class=" -Color -Color-Bold">reading sources... </span>[ 45%] <span class=" -Color -Color-Magenta">colombia</span>
+<span class=" -Color -Color-Bold">reading sources... </span>[ 55%] <span class=" -Color -Color-Magenta">ecuador</span>
+<span class=" -Color -Color-Bold">reading sources... </span>[ 64%] <span class=" -Color -Color-Magenta">intro</span>
+<span class=" -Color -Color-Bold">reading sources... </span>[ 73%] <span class=" -Color -Color-Magenta">notebooks/kml_visualization</span>
+<span class=" -Color -Color-Bold">reading sources... </span>[ 82%] <span class=" -Color -Color-Magenta">patagonia</span>
+<span class=" -Color -Color-Bold">reading sources... </span>[ 91%] <span class=" -Color -Color-Magenta">peru</span>
+<span class=" -Color -Color-Bold">reading sources... </span>[100%] <span class=" -Color -Color-Magenta">sae24-strava-rides</span>
+<span class=" -Color -Color-Bold">looking for now-outdated files... </span>none found
+<span class=" -Color -Color-Bold">pickling environment... </span>done
+<span class=" -Color -Color-Bold">checking consistency... </span>done
+<span class=" -Color -Color-Bold">preparing documents... </span>done
+<span class=" -Color -Color-Bold">copying assets... </span>
+<span class=" -Color -Color-Bold">copying static files... </span>done
+<span class=" -Color -Color-Bold">copying extra files... </span>done
+<span class=" -Color -Color-Bold">copying assets: </span>done
+<span class=" -Color -Color-Bold">writing output... </span>[  9%] <span class=" -Color -Color-Green">JupyterBookBuildProcess</span>
+<span class=" -Color -Color-Bold">writing output... </span>[ 18%] <span class=" -Color -Color-Green">argentina</span>
+<span class=" -Color -Color-Bold">writing output... </span>[ 27%] <span class=" -Color -Color-Green">bolivia</span>
+<span class=" -Color -Color-Bold">writing output... </span>[ 36%] <span class=" -Color -Color-Green">chile</span>
+<span class=" -Color -Color-Bold">writing output... </span>[ 45%] <span class=" -Color -Color-Green">colombia</span>
+<span class=" -Color -Color-Bold">writing output... </span>[ 55%] <span class=" -Color -Color-Green">ecuador</span>
+<span class=" -Color -Color-Bold">writing output... </span>[ 64%] <span class=" -Color -Color-Green">intro</span>
+<span class=" -Color -Color-Bold">writing output... </span>[ 73%] <span class=" -Color -Color-Green">notebooks/kml_visualization</span>
+<span class=" -Color -Color-Bold">writing output... </span>[ 82%] <span class=" -Color -Color-Green">patagonia</span>
+<span class=" -Color -Color-Bold">writing output... </span>[ 91%] <span class=" -Color -Color-Green">peru</span>
+<span class=" -Color -Color-Bold">writing output... </span>[100%] <span class=" -Color -Color-Green">sae24-strava-rides</span>
+<span class=" -Color -Color-Bold">generating indices... </span>genindex done
+<span class=" -Color -Color-Bold">writing additional pages... </span>search done
+<span class=" -Color -Color-Bold">copying images... </span>[  9%] <span class=" -Color -Color-Yellow">_static/maps/argentina_rides_map.jpg</span>
+<span class=" -Color -Color-Bold">copying images... </span>[ 18%] <span class=" -Color -Color-Yellow">_static/maps/bolivia_rides_map.jpg</span>
+<span class=" -Color -Color-Bold">copying images... </span>[ 27%] <span class=" -Color -Color-Yellow">_static/maps/chile_rides_map.jpg</span>
+<span class=" -Color -Color-Bold">copying images... </span>[ 36%] <span class=" -Color -Color-Yellow">_static/maps/colombia_rides_map.jpg</span>
+<span class=" -Color -Color-Bold">copying images... </span>[ 45%] <span class=" -Color -Color-Yellow">_static/maps/ecuador_rides_map.jpg</span>
+<span class=" -Color -Color-Bold">copying images... </span>[ 55%] <span class=" -Color -Color-Yellow">_static/photos/intro/grp1.jpg</span>
+<span class=" -Color -Color-Bold">copying images... </span>[ 64%] <span class=" -Color -Color-Yellow">_static/images/weekly_summary_large_text.png</span>
+<span class=" -Color -Color-Bold">copying images... </span>[ 73%] <span class=" -Color -Color-Yellow">_static/photos/intro/grp2.jpg</span>
+<span class=" -Color -Color-Bold">copying images... </span>[ 82%] <span class=" -Color -Color-Yellow">_static/photos/intro/grp3.jpg</span>
+<span class=" -Color -Color-Bold">copying images... </span>[ 91%] <span class=" -Color -Color-Yellow">_static/maps/patagonia_rides_map.jpg</span>
+<span class=" -Color -Color-Bold">copying images... </span>[100%] <span class=" -Color -Color-Yellow">_static/maps/peru_rides_map.jpg</span>
+<span class=" -Color -Color-Bold">dumping search index in English (code: en)... </span>done
+<span class=" -Color -Color-Bold">dumping object inventory... </span>done
+[etoc] missing index.html written as redirect to &#39;intro.html&#39;
+<span class=" -Color -Color-Bold">build succeeded, 18 warnings.</span>
+
+The HTML pages are in _build/html.
+
+===============================================================================
+
+Finished generating HTML for book.
+Your book&#39;s HTML pages are here:
+    _build/html/
+You can look at your book by opening this file in a browser:
+    _build/html/index.html
+Or paste this line directly into your browser bar:
+    file:///Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/_build/html/index.html            
+
+===============================================================================
+
+
+Errors/Warnings:
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/colombia.md:15: WARNING: &#39;image&#39;: Invalid options format: expected &#39;:&#39; after key [myst.directive_option]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/colombia.md:35: WARNING: image file not readable: colombia_rides_map.jpg
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/intro.md:7: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/intro.md:88: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/intro.md:121: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/intro.md:129: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/intro.md:135: WARNING: Duplicate explicit target name: &quot;fig:intro_grp1&quot;.
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/intro.md:146: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/intro.md:154: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/intro.md:162: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/intro.md:170: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/intro.md:187: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/notebooks/kml_visualization.ipynb:20002: WARNING: No source code lexer found for notebook cell 2 [myst-nb.lexer]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/notebooks/kml_visualization.ipynb:40002: WARNING: No source code lexer found for notebook cell 4 [myst-nb.lexer]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/notebooks/kml_visualization.ipynb:60002: WARNING: No source code lexer found for notebook cell 6 [myst-nb.lexer]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/notebooks/kml_visualization.ipynb:80002: WARNING: No source code lexer found for notebook cell 8 [myst-nb.lexer]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/JupyterBookBuildProcess.ipynb: WARNING: document isn&#39;t included in any toctree
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/JupyterBookBuildProcess.ipynb:80002: WARNING: Lexing literal_block &quot;# Successful build 2025-02-27\n```\nBuilding JupyterBook...\nRunning Jupyter-Book v1.0.4.post0\n...\n===============================================================================\n\nFinished generating HTML for book.\nYour book&#39;s HTML pages are here:\n    _build/html/\nYou can look at your book by opening this file in a browser:\n    _build/html/index.html\nOr paste this line directly into your browser bar:\n    file:///Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/_build/html/index.html            \n\n===============================================================================\n&quot; as &quot;ipython3&quot; resulted in an error at token: &#39;`&#39;. Retrying in relaxed mode.
+
+Book built successfully!
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Try to import the jupyter-book package</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">jupyter_book</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;jupyter-book is installed (version: </span><span class="si">{</span><span class="n">jupyter_book</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;jupyter-book is not installed in this environment&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>jupyter-book is installed (version: 1.0.4.post1)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span> <span class="c1"># For macOS</span>
+<span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s1">&#39;open&#39;</span><span class="p">,</span> <span class="s1">&#39;_build/html/index.html&#39;</span><span class="p">])</span>
+   
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CompletedProcess(args=[&#39;open&#39;, &#39;_build/html/index.html&#39;], returncode=0)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="image-links">
+<h1>Image links<a class="headerlink" href="#image-links" title="Link to this heading">#</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Case-insensitive match for JPEG or JPG:</span>
+<span class="n">find</span> <span class="n">_static</span><span class="o">/</span><span class="n">maps</span> <span class="o">-</span><span class="nb">type</span> <span class="n">f</span> \<span class="p">(</span> <span class="o">-</span><span class="n">iname</span> <span class="s1">&#39;*.jpg&#39;</span> <span class="o">-</span><span class="n">o</span> <span class="o">-</span><span class="n">iname</span> <span class="s1">&#39;*.jpeg&#39;</span> \<span class="p">)</span>
+
+<span class="c1"># Match any map image with “colombia” somewhere in its name:</span>
+<span class="n">find</span> <span class="n">_static</span><span class="o">/</span><span class="n">maps</span> <span class="o">-</span><span class="nb">type</span> <span class="n">f</span> <span class="o">-</span><span class="n">name</span> <span class="s1">&#39;*colombia*map*.jpg&#39;</span>
+
+<span class="c1"># Match all PNGs in any subdir you might add later (using -path):</span>
+<span class="n">find</span> <span class="n">_static</span> <span class="o">-</span><span class="nb">type</span> <span class="n">f</span> <span class="o">-</span><span class="n">path</span> <span class="s1">&#39;_static/*/*.png&#39;</span>
+</pre></div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "geo_env"
+        },
+        kernelOptions: {
+            name: "geo_env",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'geo_env'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">JupyterBook Build Process</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">=========================</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#this-notebook-documents-the-process-of-building-our-south-america-expedition-jupyterbook">This notebook documents the process of building our South America Expedition JupyterBook.</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#links-still-not-working">Links still not working</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-create-a-python-script-to-fix-all-files">Step 3: Create a Python Script to Fix All Files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-verify-your-assets-are-correctly-copied">Step 4: Verify Your Assets Are Correctly Copied</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-rebuild-and-test">Step 5: Rebuild and Test</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-clean-jupyterbook-structure">Creating a Clean JupyterBook Structure</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-set-up-the-basic-directory-structure">Step 1: Set Up the Basic Directory Structure</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-responsive-well-aligned-layouts-in-jupyterbook">Creating Responsive, Well-Aligned Layouts in JupyterBook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-alignment-problem">The Alignment Problem</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-1-flexbox-layout-with-consistent-height">Solution 1: Flexbox Layout with Consistent Height</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-2-grid-layout-for-more-complex-arrangements">Solution 2: Grid Layout for More Complex Arrangements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-3-myst-markdown-extensions-with-panels">Solution 3: MyST Markdown Extensions with Panels</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-4-simple-inline-display-with-clear-visual-separation">Solution 4: Simple Inline Display with Clear Visual Separation</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#clean-and-build">Clean and build</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#image-links">Image links</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Mike Mossing
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  Content © 2024 Mike Mossing
+<script src="https://strava-embeds.com/embed.js"></script>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
