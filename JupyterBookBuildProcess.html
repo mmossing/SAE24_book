@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>JupyterBook Build Process &#8212; South America Expedition</title>
+    <title>JupyterBook Build Process &#8212; South American Epic</title>
   
   
   
@@ -150,7 +150,7 @@
   
   
   
-    <p class="title logo__title">South America Expedition</p>
+    <p class="title logo__title">South American Epic</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -170,7 +170,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    My South American Epic - Route Overview
+                    Introduction
                 </a>
             </li>
         </ul>
@@ -1754,6 +1754,12 @@ Reorganization complete! Your JupyterBook now has a cleaner structure with:
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="clean-and-build">
 <h1>Clean and build<a class="headerlink" href="#clean-and-build" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Build directory</p></li>
+</ul>
+<div class="highlight-!pwd notranslate"><div class="highlight"><pre><span></span> /Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book
+</pre></div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Clean and build the JupyterBook</span>
@@ -1791,6 +1797,7 @@ Reorganization complete! Your JupyterBook now has a cleaner structure with:
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning previous build...
+The history saving thread hit an unexpected error (OperationalError(&#39;attempt to write a readonly database&#39;)).History will not be written to the database.
 
 ===============================================================================
 
@@ -1807,7 +1814,7 @@ Output Path: /Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/
 <span class=" -Color -Color-Bold">loading translations [en]... </span>done
 <span class=" -Color -Color-Bold">making output directory... </span>done
 [etoc] Changing master_doc to &#39;intro&#39;
-<span class=" -Color -Color-Bold">myst v3.0.1:</span> MdParserConfig(commonmark_only=False, gfm_only=False, enable_extensions={&#39;tasklist&#39;, &#39;colon_fence&#39;, &#39;linkify&#39;, &#39;substitution&#39;, &#39;dollarmath&#39;}, disable_syntax=[], all_links_external=False, links_external_new_tab=False, url_schemes=(&#39;mailto&#39;, &#39;http&#39;, &#39;https&#39;), ref_domains=None, fence_as_directive=set(), number_code_blocks=[], title_to_header=False, heading_anchors=0, heading_slug_func=None, html_meta={}, footnote_transition=True, words_per_minute=200, substitutions={}, linkify_fuzzy_links=True, dmath_allow_labels=True, dmath_allow_space=True, dmath_allow_digits=True, dmath_double_inline=False, update_mathjax=True, mathjax_classes=&#39;tex2jax_process|mathjax_process|math|output_area&#39;, enable_checkboxes=False, suppress_warnings=[], highlight_code_blocks=True)
+<span class=" -Color -Color-Bold">myst v3.0.1:</span> MdParserConfig(commonmark_only=False, gfm_only=False, enable_extensions={&#39;colon_fence&#39;, &#39;dollarmath&#39;, &#39;tasklist&#39;, &#39;substitution&#39;, &#39;linkify&#39;}, disable_syntax=[], all_links_external=False, links_external_new_tab=False, url_schemes=(&#39;mailto&#39;, &#39;http&#39;, &#39;https&#39;), ref_domains=None, fence_as_directive=set(), number_code_blocks=[], title_to_header=False, heading_anchors=0, heading_slug_func=None, html_meta={}, footnote_transition=True, words_per_minute=200, substitutions={}, linkify_fuzzy_links=True, dmath_allow_labels=True, dmath_allow_space=True, dmath_allow_digits=True, dmath_double_inline=False, update_mathjax=True, mathjax_classes=&#39;tex2jax_process|mathjax_process|math|output_area&#39;, enable_checkboxes=False, suppress_warnings=[], highlight_code_blocks=True)
 <span class=" -Color -Color-Bold">myst-nb v1.2.0:</span> NbParserConfig(custom_formats={}, metadata_key=&#39;mystnb&#39;, cell_metadata_key=&#39;mystnb&#39;, kernel_rgx_aliases={}, eval_name_regex=&#39;^[a-zA-Z_][a-zA-Z0-9_]*$&#39;, execution_mode=&#39;off&#39;, execution_cache_path=&#39;&#39;, execution_excludepatterns=[], execution_timeout=30, execution_in_temp=False, execution_allow_errors=False, execution_raise_on_error=False, execution_show_tb=False, merge_streams=False, render_plugin=&#39;default&#39;, remove_code_source=False, remove_code_outputs=False, code_prompt_show=&#39;Show code cell {type}&#39;, code_prompt_hide=&#39;Hide code cell {type}&#39;, number_source_lines=False, output_stderr=&#39;show&#39;, render_text_lexer=&#39;myst-ansi&#39;, render_error_lexer=&#39;ipythontb&#39;, render_image_options={}, render_figure_options={}, render_markdown_format=&#39;commonmark&#39;, output_folder=&#39;build&#39;, append_css=True, metadata_to_fm=False)
 Using jupyter-cache at: /Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/_build/.jupyter_cache
 <span class=" -Color -Color-Bold">sphinx-multitoc-numbering v0.1.3:</span> Loaded
@@ -1847,21 +1854,25 @@ Using jupyter-cache at: /Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAE
 <span class=" -Color -Color-Bold">writing output... </span>[100%] <span class=" -Color -Color-Green">sae24-strava-rides</span>
 <span class=" -Color -Color-Bold">generating indices... </span>genindex done
 <span class=" -Color -Color-Bold">writing additional pages... </span>search done
-<span class=" -Color -Color-Bold">copying images... </span>[  9%] <span class=" -Color -Color-Yellow">_static/maps/argentina_rides_map.jpg</span>
-<span class=" -Color -Color-Bold">copying images... </span>[ 18%] <span class=" -Color -Color-Yellow">_static/maps/bolivia_rides_map.jpg</span>
-<span class=" -Color -Color-Bold">copying images... </span>[ 27%] <span class=" -Color -Color-Yellow">_static/maps/chile_rides_map.jpg</span>
-<span class=" -Color -Color-Bold">copying images... </span>[ 36%] <span class=" -Color -Color-Yellow">_static/maps/colombia_rides_map.jpg</span>
-<span class=" -Color -Color-Bold">copying images... </span>[ 45%] <span class=" -Color -Color-Yellow">_static/maps/ecuador_rides_map.jpg</span>
-<span class=" -Color -Color-Bold">copying images... </span>[ 55%] <span class=" -Color -Color-Yellow">_static/photos/intro/grp1.jpg</span>
-<span class=" -Color -Color-Bold">copying images... </span>[ 64%] <span class=" -Color -Color-Yellow">_static/images/weekly_summary_large_text.png</span>
-<span class=" -Color -Color-Bold">copying images... </span>[ 73%] <span class=" -Color -Color-Yellow">_static/photos/intro/grp2.jpg</span>
-<span class=" -Color -Color-Bold">copying images... </span>[ 82%] <span class=" -Color -Color-Yellow">_static/photos/intro/grp3.jpg</span>
-<span class=" -Color -Color-Bold">copying images... </span>[ 91%] <span class=" -Color -Color-Yellow">_static/maps/patagonia_rides_map.jpg</span>
+<span class=" -Color -Color-Bold">copying images... </span>[  7%] <span class=" -Color -Color-Yellow">_static/maps/argentina_rides_map.jpg</span>
+<span class=" -Color -Color-Bold">copying images... </span>[ 13%] <span class=" -Color -Color-Yellow">_static/maps/bolivia_rides_map.jpg</span>
+<span class=" -Color -Color-Bold">copying images... </span>[ 20%] <span class=" -Color -Color-Yellow">_static/maps/chile_rides_map.jpg</span>
+<span class=" -Color -Color-Bold">copying images... </span>[ 27%] <span class=" -Color -Color-Yellow">_static/maps/colombia_rides_map.jpg</span>
+<span class=" -Color -Color-Bold">copying images... </span>[ 33%] <span class=" -Color -Color-Yellow">_static/photos/b01_0630a.jpg</span>
+<span class=" -Color -Color-Bold">copying images... </span>[ 40%] <span class=" -Color -Color-Yellow">_static/photos/b01_0630b.jpg</span>
+<span class=" -Color -Color-Bold">copying images... </span>[ 47%] <span class=" -Color -Color-Yellow">_static/photos/b01_0701a.jpg</span>
+<span class=" -Color -Color-Bold">copying images... </span>[ 53%] <span class=" -Color -Color-Yellow">_static/maps/ecuador_rides_map.jpg</span>
+<span class=" -Color -Color-Bold">copying images... </span>[ 60%] <span class=" -Color -Color-Yellow">_static/photos/grp1.jpg</span>
+<span class=" -Color -Color-Bold">copying images... </span>[ 67%] <span class=" -Color -Color-Yellow">_static/images/weekly_summary_large_text.png</span>
+<span class=" -Color -Color-Bold">copying images... </span>[ 73%] <span class=" -Color -Color-Yellow">_static/images/tloadOT_SA_tour_weeks_B.png</span>
+<span class=" -Color -Color-Bold">copying images... </span>[ 80%] <span class=" -Color -Color-Yellow">_static/photos/grp2.jpg</span>
+<span class=" -Color -Color-Bold">copying images... </span>[ 87%] <span class=" -Color -Color-Yellow">_static/photos/grp3.jpg</span>
+<span class=" -Color -Color-Bold">copying images... </span>[ 93%] <span class=" -Color -Color-Yellow">_static/maps/patagonia_rides_map.jpg</span>
 <span class=" -Color -Color-Bold">copying images... </span>[100%] <span class=" -Color -Color-Yellow">_static/maps/peru_rides_map.jpg</span>
 <span class=" -Color -Color-Bold">dumping search index in English (code: en)... </span>done
 <span class=" -Color -Color-Bold">dumping object inventory... </span>done
 [etoc] missing index.html written as redirect to &#39;intro.html&#39;
-<span class=" -Color -Color-Bold">build succeeded, 18 warnings.</span>
+<span class=" -Color -Color-Bold">build succeeded, 21 warnings.</span>
 
 The HTML pages are in _build/html.
 
@@ -1879,24 +1890,27 @@ Or paste this line directly into your browser bar:
 
 
 Errors/Warnings:
-/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/colombia.md:15: WARNING: &#39;image&#39;: Invalid options format: expected &#39;:&#39; after key [myst.directive_option]
-/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/colombia.md:35: WARNING: image file not readable: colombia_rides_map.jpg
-/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/intro.md:7: WARNING: Document headings start at H2, not H1 [myst.header]
-/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/intro.md:88: WARNING: Document headings start at H2, not H1 [myst.header]
-/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/intro.md:121: WARNING: Document headings start at H2, not H1 [myst.header]
-/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/intro.md:129: WARNING: Document headings start at H2, not H1 [myst.header]
-/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/intro.md:135: WARNING: Duplicate explicit target name: &quot;fig:intro_grp1&quot;.
-/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/intro.md:146: WARNING: Document headings start at H2, not H1 [myst.header]
-/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/intro.md:154: WARNING: Document headings start at H2, not H1 [myst.header]
-/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/intro.md:162: WARNING: Document headings start at H2, not H1 [myst.header]
-/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/intro.md:170: WARNING: Document headings start at H2, not H1 [myst.header]
-/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/intro.md:187: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/colombia.md:54: WARNING: &#39;grid&#39;: Invalid option value for &#39;gutter&#39;: 20px: argument must be 1 or 4 (xs sm md lg) values, and each value should be an integer from 0 to 5 [myst.directive_option]
+<span class=" -Color -Color-Red">/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/colombia.md:75: ERROR: Error in &quot;image&quot; directive: &quot;middle&quot; is not a valid value for the &quot;align&quot; option.  Valid values for &quot;align&quot; are: &quot;left&quot;, &quot;center&quot;, &quot;right&quot;.</span>
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/intro.md:6: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/intro.md:31: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/intro.md:43: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/intro.md:77: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/intro.md:119: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/intro.md:126: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/intro.md:134: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/intro.md:150: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/intro.md:158: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/intro.md:166: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/intro.md:174: WARNING: Document headings start at H2, not H1 [myst.header]
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/intro.md:191: WARNING: Document headings start at H2, not H1 [myst.header]
 /Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/notebooks/kml_visualization.ipynb:20002: WARNING: No source code lexer found for notebook cell 2 [myst-nb.lexer]
 /Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/notebooks/kml_visualization.ipynb:40002: WARNING: No source code lexer found for notebook cell 4 [myst-nb.lexer]
 /Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/notebooks/kml_visualization.ipynb:60002: WARNING: No source code lexer found for notebook cell 6 [myst-nb.lexer]
 /Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/notebooks/kml_visualization.ipynb:80002: WARNING: No source code lexer found for notebook cell 8 [myst-nb.lexer]
 /Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/JupyterBookBuildProcess.ipynb: WARNING: document isn&#39;t included in any toctree
 /Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/JupyterBookBuildProcess.ipynb:80002: WARNING: Lexing literal_block &quot;# Successful build 2025-02-27\n```\nBuilding JupyterBook...\nRunning Jupyter-Book v1.0.4.post0\n...\n===============================================================================\n\nFinished generating HTML for book.\nYour book&#39;s HTML pages are here:\n    _build/html/\nYou can look at your book by opening this file in a browser:\n    _build/html/index.html\nOr paste this line directly into your browser bar:\n    file:///Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/_build/html/index.html            \n\n===============================================================================\n&quot; as &quot;ipython3&quot; resulted in an error at token: &#39;`&#39;. Retrying in relaxed mode.
+/Users/mike/Documents/Travel/SAE2024/Summary_SAE2024/SAEstory/Book/SAE24_book/JupyterBookBuildProcess.ipynb:300005: WARNING: Pygments lexer name &#39;!pwd&#39; is not known
 
 Book built successfully!
 </pre></div>

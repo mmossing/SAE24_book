@@ -8,8 +8,13 @@ date: 2025-02-16
 
 Ecuador's geography is dominated by the **Andes Mountains**, with towering volcanoes and deep valleys defining the route. The journey through Ecuador moves from **Pasto, Colombia**, into the high-altitude **Avenue of the Volcanoes**, passing through **Quito, Baños, and Loja**, before descending into **Chiclayo, Peru**. This section presents some of the most **dramatic elevation gains** of the expedition, with daily crossings between volcanic valleys.
 
-![ecuador_rides_map](_static/maps/ecuador_rides_map.jpg "Rides Across Ecuador")
-
+```{figure} _static/maps/ecuador_rides_map.jpg
+---
+scale: 50%
+align: left
+---
+A month's worth of rides across Ecuador
+```
 
 A recurring theme emerges: **high passes, steep descents, and long valley stretches**. Rivers like the **Pastaza** carve through the mountains, while volcanic ridges provide natural barriers. Each **block** below highlights key geographic features, along with an interactive map of the actual routes ridden.
 
