@@ -1,0 +1,22 @@
+{
+  // Treat “.md” as MyST Markdown
+  "files.associations": { "*.md": "markdown" },
+  "markdown.extension.syntax.decorator.enabled": true,
+
+  // Enable linting on save
+  "markdownlint.config": {
+    "MD033": false,        // allow inline HTML
+    "MD041": false         // allow unknown fences (::: directives)
+  },
+
+  // Jupyter Notebook root
+  "jupyter.notebookFileRoot": "${workspaceFolder}/SAE24_book",
+
+  // Point at your Conda env
+  "python.defaultInterpreterPath": "/Users/mike/anaconda3/envs/geo_env/bin/python",
+
+  // Markdown Preview Enhanced to view MyST Markdown
+  "markdown-preview-enhanced.previewTheme": "github-light.css",
+  "markdown-preview-enhanced.enableScriptExecution": true,
+  "markdown.preview.openMarkdownLinks": "inPreview"
+}

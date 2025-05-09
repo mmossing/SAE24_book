@@ -1,5 +1,5 @@
 ---
-title: South American Expedition 2024 - Strava Rides
+title: South American Epic 2024 - Strava Rides
 author: Mike Mossing
 date: 2024
 ---

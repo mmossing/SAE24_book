@@ -1,0 +1,18 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build Jupyter Book",
+      "type": "shell",
+      "command": "jupyter-book build SAE24_book",
+      "group": { "kind": "build", "isDefault": true },
+      "presentation": { "echo": true, "reveal": "always" }
+    },
+    {
+      "label": "Serve Jupyter Book",
+      "type": "shell",
+      "command": "jupyter-book serve SAE24_book",
+      "problemMatcher": []
+    }
+  ]
+}

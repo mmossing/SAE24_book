@@ -1,6 +1,9 @@
+# _config.yml
 author: Mike Mossing
+
 execute:
   execute_notebooks: 'off'
+
 html:
   baseurl: .
   extra_footer:  |
@@ -8,8 +11,13 @@ html:
     <script src="https://strava-embeds.com/embed.js"></script>
   extra_navbar: A journey across South America
   use_repository_button: false
+
 sphinx:
+  # merge, don’t clobber, the defaults (so myst_parser, sphinx_design, etc. stay enabled)
+  recursive_update: true
+
   config:
     html_static_path:
     - _static
-title: South America Expedition
+    
+title: South American Epic
