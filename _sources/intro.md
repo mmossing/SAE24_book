@@ -3,44 +3,12 @@ layout: post
 title: "South American Epic 2024"
 date: 2025-02-16
 ---
-## Introduction
+# Introduction
 
-The 2024 [South American Epic](https://tdaglobalcycling.com/south-american-epic) started on the last day of June in Cartagena, Colombia and finished 24 weeks later in Ushuaia, Argentina. **TDA Global Cycling** organizes trips like this around the world.  Everyone brings a bike and 2 duffels to live out of for the duration of the trip. A great group of staff help us to navigate across the continent, fix our bikes, haul our gear, keep us healthy and out of trouble. The tour is broken into 9 sections, beginning and ending at cities with airports where people can join or leave the tour. About 30 of us met in Cartagena, 17 went all the way to Ushuaia , other "sectional" riders joined us along the way, often for months at a time. 
-
-```{figure} _static/photos/grp1.jpg
-:alt: SAE24 riders at the start hotel in Cartagena
-:width: 95%
-:name: fig:Cartagena_Group
-
-All smiles before the start in Cartagena 
-```
-
-Weather for the tour was surprisingly uniform. After a few hot and humid mid-summer days in the lowlands of Colombia we started to climb into the Andes.  We crossed the equator just north of Quito Ecuador on August 1.  Most of the temperature variation for the 100 days that we spent in the tropics had more to do with elevation than latitude. The only night I remember frost on the tent was at the base of Cotopaxi in Early August. From Argentina southward we were riding from early spring into summer. Just a few rainy days as we were mostly on the dry side of the Andes. 
- 
-The rhythm of the tour was centered around blocks of rides, 2 - 7 days where we would ride every day, live out of a single duffle and sleep in a tent most nights. Riding blocks were punctuated by rest days in a hotel, where we could recuperate and the staff could catch their breath.  Explore. Do laundry. Repack and get ready to ride again.  
-
-This introduction presents an overview of the route, as planned by TDA and as ridden (by me, everyone did their own ride, there were both individual and global changes to the original plan - nobody made it to 13,495 km as indicated on the banner above, primarily because of an extended break in Bolivia to avoid a political demonstration - but more about that later).  
-
-
-An overview of the metrics of my tour: kilometers traveled, meters climbed, hours ridden, energy expended, is presented in tables and figures below.  Overall we rode about 5 or 6 hrs per day 5 or 6 days per week for 24 weeks.  
-
-Individual rides and experiences are described by country, plus a final section on Patagonia (combining some back and forth between Chile and Argentina at the end). Each country is divided into 2-5 riding blocks. Summaries and links to more details below.
-
-In addition there is a page that simply lists the strava rides recorded during the tour with embedded graphics, photos and links to indivdual Strava rides and an appendix with several Jupyter Notebooks with technical details on downloading and processing the ride data, processing photos and assembling this book. 
+The 2024 [South American Epic](https://tdaglobalcycling.com/south-american-epic) started on the last day of June in Cartagena, Colombia and finished 24 weeks later in Ushuaia, Argentina. 
 
 ##  Route Overview
 
-Here's the plan. Here's what we signed up for, to ride our bikes from the Caribbean coast to the southernmost tip of South America. As originally envisioned,the total was to be 13,785 km mostly within a few hundred kilometers of the pacific ocean, on the dry side of the continent. There were about 30 of us to begin in Cartagena.
-
-But that's also the bumpy side, back and forth across and through the Andes. The schedule was fixed, we ride 5 or 6 days a week, for 5 or 6 hrs a day (if all goes well) for 24 weeks. Broken down by ride that's a bit over 100km / riding day with a bit over 1200m of climbing.  
-
-On the left, the orange line is a sketch of the route as **planned**.  
-On the right each of **my** rides (some were shortened, some were skipped) are depicted with a different color for each day of riding.  
-
-<!-- 
-:::{figure} figure directives as wrappers not working!
- -->
-## 
 ::::{grid} 2
 :gutter: 2
 
@@ -71,10 +39,29 @@ On the right each of **my** rides (some were shortened, some were skipped) are d
 :::
 
 ::::
+On the left, the orange line is a sketch of the route as **planned**.  
+On the right each of **my** rides (some were shortened, some were skipped) are depicted with a different color for each day of riding. On the continental scale it looks like lots of colored dots (118 rides) you can expand the scale to have a look but there will be finer scale maps for each block of rides in the country pages below. 
 
 Of course not everything went to plan. I didn't do every ride from start to finish.  We all missed a few days of riding in Bolivia due to protests, and in Patagonia due to logistical issues. Still it was a big trip.
 
+[TDA Global Cycling](https://tdaglobalcycling.com) organizes trips like this around the world.  Everyone brings a bike and 2 duffels to live out of for the duration of the trip. A great group of staff help us to navigate across the continent, fix our bikes, haul our gear, keep us healthy and out of trouble. The tour is broken into 9 sections, beginning and ending at cities with airports where people can join or leave the tour. About 30 of us met in Cartagena, 17 went all the way to Ushuaia , other "sectional" riders joined us along the way, often for months at a time. 
+
+```{figure} _static/photos/grp1.jpg
+:alt: SAE24 riders at the start hotel in Cartagena
+:width: 95%
+:name: fig:Cartagena_Group
+
+All smiles before the start in Cartagena 
+```
+Weather for the tour was surprisingly uniform. After a few hot and humid mid-summer days in the lowlands of Colombia, we started to climb into the Andes.  We crossed the equator in Ecuador on August 1. For the first 100 days, until we reached the tropic of capricorn, temperatures had more to do with elevation than season or latitude. The only night I remember frost on the tent was at the base of Cotopaxi in early August. From Argentina southward we were riding from a wonderfully extended early spring into summer. It seemed for several weeks as we rode south in Chile and Argentina that we were seeing the growing season run in reverse. Just a few rainy days as we were mostly on the dry side of the Andes almost always within a few hundred kilometers of the Pacific Ocean. 
+ 
+The rhythm of the tour was centered around blocks of rides, 2 - 7 days where we would ride every day, live out of a single duffle and sleep in a tent most nights. Riding blocks were punctuated by rest days in a hotel, where we could recuperate and the staff could catch their breath.  Explore. Do laundry. Repack and get ready to ride again.  
+
+This introduction presents an overview of the route, as planned by TDA and as ridden (by me, everyone did their own ride, there were both individual and global changes to the original plan - nobody made it to 13,495 km as indicated on the banner above, primarily because of an extended break in Bolivia to avoid a political demonstration - but more about that later).  
+
 ## Expedition Metrics
+
+An overview of the metrics of my tour: kilometers traveled, meters climbed, hours ridden, energy expended, is presented in tables and figures below.  Overall we rode about 5 or 6 hrs per day 5 or 6 days per week for 24 weeks.  
 
 :::{table} Metics for whole expedition
 :widths: auto
@@ -88,7 +75,7 @@ Of course not everything went to plan. I didn't do every ride from start to fini
 | Moving Time (hrs)      |     728 |     30.3 |     6.2        |
 :::
 
-Lots of climbing in the first few weeks in Colombia and Ecuador.  Flattish as we rode along the coast of Peru.  More climbing back into the Andes, a few days interruption waiting for protests to clear in Bolivia.
+Distances, elevation gain, and moving time were recorded on a Garmin device for each ride, downloaded via the Strava API and calculated as outlined in strava_summary.ipynb in the appendix_.  Energy Expended came from Garmin - it's an estimate of Calories burned. Lots of climbing in the first few weeks in Colombia and Ecuador.  Flattish as we rode along the coast of Peru.  More climbing back into the Andes, a few days interruption waiting for protests to clear in Bolivia.
 
 
 ### Metrics by Week

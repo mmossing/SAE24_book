@@ -6,25 +6,33 @@ date: 2025-02-16
 
 # Colombia  
 
-We spent a month riding across Colombia, from 30 June to 30 July 2024. From midsummer heat and humidity along the coast, to the soggy [La Mojana - Wetlands](https://en.wikipedia.org/wiki/La_Mojana) 
+We spent a month riding across Colombia, from 30 June to 30 July 2024. From midsummer heat and humidity along the coast, to the soggy [La Mojana - Wetlands](https://en.wikipedia.org/wiki/La_Mojana) and then climbing into the Cordilleras, first along the Cauca River climbing the Cordillera Central to Medellin, and then crossing  back down into the Magdalena Valley and up onto the Cordillera Oriental in Bogotoa. From there it was back down into the Magdalena valley and through the Tatacoa desert. Finally climbing into the Colombian Massif near San Augustin near where both the Cauca and Magdalena originate as small streams.  
 
-```{figure} _static/maps/colombia_rides_map.jpg
----
-scale: 50%
-align: left
----
+::::{grid} 2
+:gutter: 0
+
+:::{grid-item}
+:::{figure} _static/maps/colombia_rides_map.jpg
+:alt: colombia_rides_map
+:height: 400px
+
 A month's worth of rides across Colombia
-```
+:::
+:::
 
-Colombia’s diverse geography, shaped by **three Andean Cordilleras**, offers a stunning variety of landscapes. This cycling journey moves from the **Caribbean Lowlands** into the **Cauca and Magdalena River Valleys**, climbs through **coffee-rich mountain ridges**, and traverses **high-altitude páramo** before heading south to Ecuador.  
+:::{grid-item}
+:::{figure} _static/maps/magdalena_basin.png
+:alt: magdalena_basin
+:height: 400px
 
-A recurring theme emerges: **bridges at daily minima, and passes marking transitions between watersheds**. Rivers carve the land, defining the contours of the ride. Each **block** below highlights key geographic features, along with an interactive map of the actual routes ridden.
+The Magalena River Basin From Fig 3 in Nardini et al (2020) Water, 12(4), 1147. https://doi.org/10.3390/w12041147
+:::
+:::
+::::
 
-<div style="clear:left;"></div>
 ---
 
-
-## **Block 1: Caribbean Lowlands - Cartagena to San Marcos**  
+## Block 1: Caribbean Lowlands
 
 ### Cartagena to San Marcos
 
@@ -34,79 +42,80 @@ As the route moves inland, the rolling terrain hints at the climbs to come.
 
 Here’s the interactive map showing the actual routes ridden in **Block 1**:
 
-<!-- 
-<div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: stretch; margin: 20px 0;">
-    <div style="flex: 2; min-width: 200px; max-width: 300px;">
-        <iframe src="_static/maps/block_1_map.html" 
-                style="width: 100%; height: 400px; border: none; box-shadow: 0 0 5px rgba(0,0,0,0.2);"
-                scrolling="no" allowfullscreen></iframe>
-    </div>
-    <div style="flex: 3; min-width: 400px; display: flex; align-items: center; justify-content: center;">
-        <img src="_static/images/block_1_elevation.png" 
-             alt="Elevation Profile - Block 1" 
-             style="width: 100%; height: 400px; object-fit: contain;">
-    </div>
-</div>
- -->
-
-### Grid replacement
-
 ::::{grid} 2
-:gutter: 20px
 
 :::{grid-item}
 :columns: 4
-### Map
-
+**Map**  
 <iframe
   src="_static/maps/block_1_map.html"
-    width="100%"  
-    height="400"  
-    style="border:0;"
-    allowfullscreen>  
+  width="100%"  
+  height="400"  
+  style="border:0;"
+  allowfullscreen>  
 </iframe>
 :::
 
 :::{grid-item}
 :columns: 8
-### Elevation
-
-```{image} _static/images/block_1_elevation.png
+**Elevation**  
+:::{figure} _static/images/block_1_elevation.png
 :alt: block_1_elevation
 :width: 100%
-:align: middle
+:align: center
+:name: block_1_elevation-fig
+
+**Block 1**: Stage 1 Cartagena to Maria La Baja, Stage 2 Maria La Baja to Santiago de Tolu, Stage 3 Santiago de Tolu to San Marcos.  **Total: 311km with 1890m of climbing.**
+:::
+:::
+::::
+
+From Cartagena we headed south and east across the lowlands, into the countryside until we crossed a bridge over the Canal del Dique that connects Cartagena to the Rio Magdalena. The second day we made it to Tulum and camped just across the street from the beach. As we continued south to San Marcos on day three the ground was wetter and wetter. 
+
+<!-- New version - fixed -->
+::::{grid} 2
+:gutter: 3
+
+:::{grid-item}
+```{raw} html
+<video width='90%' controls>
+    <source src='_static/videos/b01_0630a.mp4' type='video/mp4'>
+    Your browser does not support the video tag.
+</video>
 ```
+:::
+
+:::{grid-item}
+:::{image} _static/photos/b01_0701a.jpg
+    :alt: Block 1: Brits in the country
+    :width: 90%
+:::
+:::
+
+:::{grid-item}
+:::{image} _static/photos/b01_0702a.jpg
+    :alt: Block 1: Felicia with cows
+    :width: 90%
+:::
+:::
+
+:::{grid-item}
+:::{image} _static/photos/b01_0702b.jpg
+    :alt: Block 1: Mike, Felicia y policia
+    :width: 90%
+:::
 :::
 
 ::::
 
-From Cartagena we headed south and east across the lowlands,
-into the countryside until we crossed a bridge over Canal del Dique
- connecting Cartagena to the Rio Magdalena. The second day we made it to Tulum and camped just across the street from the beach. As we continued south to San Marcos on day three the ground was wetter and wetter.  
+<!-- Orig version +
+<video width='90%' controls>
+<source src='_static/videos/b01_0630a.mp4' type='video/mp4'>
+Your browser does not support the video tag.
+</video>
 
 ::::{grid} 2
-:gutter: 2
-
-:::{grid-item}
-```{image}  _static/photos/b01_0630a.jpg
-:alt: Image 1
-:width: 90%
-```
-:::
-
-:::{grid-item}
-```{image} _static/photos/b01_0630b.jpg
-:alt:  Bridge over Canal del Dique connecting Cartagena to Rio Magdalena
-:width: 90%
-```
-:::
-
-:::{grid-item}
-```{image} _static/photos/b01_0701a.jpg
-:alt: Image 3
-:width: 90%
-```
-:::
+:gutter: 3
 
 :::{grid-item}
 <video width="90%" controls>
@@ -114,44 +123,185 @@ into the countryside until we crossed a bridge over Canal del Dique
 Your browser does not support the video tag.
 </video>
 :::
+
+:::{grid-item}
+:::{image} _static/photos/b01_0701a.jpg
+:alt: Brits in the country - tall
+:width: 90%
+:::
+:::
+
+:::{grid-item}
+:::{image} _static/photos/b01_0702a.jpg
+:alt: Felicia with cows - square
+:width: 90%
+:::
+:::
+
+:::{grid-item}
+:::{image} _static/photos/b01_0702b.jpg
+:alt: Mike, Felicia y policia - square
+:width: 90%
+:::
+:::
+
 ::::
+-->
+
+
 
 ---
 
-## **Block 2: Cauca River Valley and Andean Foothills **  
+## Block 2: Cauca River Valley and Andean Foothills 
 ### San Marcos to Medellin
 
-We arrived in San Marcos for our first rest day of the tour, the rivers were high on the way into town and it rained overnight. Worried about the condition of our first unpaved road of the tour, I set out on a short on the rest day to have a look at the dirt (now mud!) road. 
+Leaving the coastal plains, the route follows the **Cauca River Valley**, a deep trench between the **Western and Central Cordilleras**. This section is marked by **hot, flat riding along the river floodplain**, followed by **steep climbs into the Andean foothills**. 
 
-
-
-
-
-Leaving the coastal plains, the route follows the **Cauca River Valley**, a deep trench between the **Western and Central Cordilleras**. This section is marked by **hot, flat riding along the river floodplain**, followed by **steep climbs into the Andean foothills**. The daily minima align with **Cauca River crossings**, while the maxima bring cool mountain air and breathtaking views.  
 
 Here’s the interactive map showing the actual routes ridden in **Block 2**:
 
-<div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: stretch; margin: 20px 0;">
-    <div style="flex: 2; min-width: 200px; max-width: 300px;">
-        <iframe src="_static/maps/block_2_map.html" 
-                style="width: 100%; height: 400px; border: none; box-shadow: 0 0 5px rgba(0,0,0,0.2);"
-                scrolling="no" allowfullscreen></iframe>
-    </div>
-    <div style="flex: 3; min-width: 400px; display: flex; align-items: center; justify-content: center;">
-        <img src="_static/images/block_2_elevation.png" 
-             alt="Elevation Profile - Block 2" 
-             style="width: 100%; height: 400px; object-fit: contain;">
-    </div>
-</div>
+::::{grid} 2
+:gutter: 3
+
+:::{grid-item}
+:columns: 4
+**Map**  
+<iframe
+  src="_static/maps/block_2_map.html"
+  width="100%"  
+  height="400"  
+  style="border:0;"
+  allowfullscreen>  
+</iframe>
+:::
+
+:::{grid-item}
+:columns: 8
+**Elevation** 
+:::{figure} _static/images/block_2_elevation.png
+:alt: block_2_elevation
+:width: 100%
+:align: center
+:name: block_2_elevation-fig
+
+**Block 2:** Pre-stage 4a recon San Marcos to the muddy road. Stage 4a boating Rio San Jorge to Cienega de Ayapel to Ayapel. Stage 4b Ayapel to Caucasia, (by bike!). Stage 5 Caucasia to Valdivia, Stage 6 Valdivia to Trout Camp, near Entrerrios. ~~Stage 7 Trout Camp to Medellin.~~ (skipped this one)  **Total: 401km with 6319m of climbing.**
+:::
+:::
+::::
+
+We arrived in San Marcos for our first rest day of the tour. The rivers were high on the way into town and it rained overnight. Since I came with my skinny tires (not quite worn out, maybe easier for the early mountains), I was worried about the condition of our first unpaved road of the tour. The original course was 30 odd kilometers along the Rio San Jorge, followed by a boat ride across Ciénaga de Ayapel. If it was muddy, a tire change would have been in order.  
+
+I set out on the rest day to have a look at the dirt (now mud!) road. It was so muddy that none of us rode it (see the youtube link below for the full story)! Rather than 30 km of through the mud along the Rio San Jorge, the water was high enough that the local pilots took us directly from San Marcos across the smaller Ciénaga la Cruz, poling through a connection to the Rio San Jorge then back to Ciénaga de Ayapel.
+
+::::{grid} 2
+:gutter: 3
+
+:::{grid-item}
+:::{image} _static/photos/b02_0703a.jpg
+    :alt: Block 2: High water
+    :width: 90%
+:::
+:::
+
+:::{grid-item}
+:::{image} _static/photos/b02_0703b.jpg
+    :alt: Block 2: Muddy road
+    :width: 90%
+:::
+:::
+
+:::{grid-item}
+:::{image} _static/photos/b02_0704a.jpg
+    :alt: Block 2: Poling to find a passage
+    :width: 90%
+:::
+:::
+
+:::{grid-item}
+```{raw} html
+<video width='90%' controls>
+    <source src='_static/videos/b02_0704b.mp4' type='video/mp4'>
+    Your browser does not support the video tag.
+</video>
+```
+:::
+
+::::
 
 
+<!-- 
+::::{grid} 2
+:gutter: 3
 
+:::{grid-item}
+:::{image} _static/photos/b01_0630a.jpg
+:alt: Crossing the canal on day one
+:width: 90%
+:::
+:::
 
-### Bypassing the mud by boat in San Marcos, Colombia
+:::{grid-item}
+:::{image} _static/photos/b01_0630b.jpg
+:alt: Beautiful coastline views
+:width: 90%
+:::
+:::
+
+:::{grid-item}
+:::{image} _static/photos/b01_0701a.jpg
+:alt: Village market scene
+:width: 90%
+:::
+:::
+
+:::{grid-item}
+:::{image} _static/photos/b01_0701b.jpg
+:alt: The team taking a break
+:width: 90%
+:::
+:::
+::::
+ -->
+
+Ben Levin was our media guy for the first half of the trip.  I'll include links to the youtube clips he made to document our trip. Here's the first one.
+
 [![An Unexpected Boat Ride](https://i.ytimg.com/vi/8uYH9JcSzBs/hqdefault.jpg)](https://www.youtube.com/watch?v=8uYH9JcSzBs)  
 🎥 **[Watch on YouTube](https://www.youtube.com/watch?v=8uYH9JcSzBs)** – by [TDA Global Cycling](https://www.youtube.com/@tdacycling)  
 
+After the wetlands came the hills.  The very next day we started to climb, just about 1000 meters on the first day.  Still some cows up in the hills.  It got steeper on the way up to Medellin. Lorenzo Boutall (@worldwidemechanic) looked after us on the climbs (and looked after our bikes at camp) and fellow rider Paul Love making our way up the mountain.
 
+::::{grid} 2
+:gutter: 3
+
+:::{grid-item}
+:::{image} _static/photos/b02_0705a.jpg
+    :alt: Block 2: Cordillera view
+    :width: 90%
+:::
+:::
+
+:::{grid-item}
+:::{image} _static/photos/b02_0706a.jpg
+    :alt: Block 2: Lorenzo
+    :width: 90%
+:::
+:::
+
+:::{grid-item}
+:::{image} _static/photos/b02_0706b.jpg
+    :alt: Block 2: Paul
+    :width: 90%
+:::
+:::
+
+:::{grid-item}
+:::{image} _static/photos/b02_0706c.jpg
+    :alt: Block 2: Mountain Stream
+    :width: 90%
+:::
+:::
+
+::::
 
 ---
 
@@ -168,18 +318,35 @@ This section moves into **Colombia’s Coffee Axis**, where ridges and valleys c
 
 Here’s the interactive map showing the actual routes ridden in **Block 3**:
 
-<div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: stretch; margin: 20px 0;">
-    <div style="flex: 2; min-width: 200px; max-width: 300px;">
-        <iframe src="_static/maps/block_3_map.html" 
-                style="width: 100%; height: 400px; border: none; box-shadow: 0 0 5px rgba(0,0,0,0.2);"
-                scrolling="no" allowfullscreen></iframe>
-    </div>
-    <div style="flex: 3; min-width: 400px; display: flex; align-items: center; justify-content: center;">
-        <img src="_static/images/block_3_elevation.png" 
-             alt="Elevation Profile - Block 3" 
-             style="width: 100%; height: 400px; object-fit: contain;">
-    </div>
-</div>
+::::{grid} 2
+
+:::{grid-item}
+:columns: 4
+**Map**  
+<iframe
+  src="_static/maps/block_3_map.html"
+  width="100%"  
+  height="400"  
+  style="border:0;"
+  allowfullscreen>  
+</iframe>
+:::
+
+:::{grid-item}
+:columns: 8
+**Elevation**  
+:::{figure} _static/images/block_3_elevation.png
+:alt: block_1_elevation
+:width: 100%
+:align: center
+:name: block_3_elevation-fig
+
+**Block 3:** Stage 8 Medellin to La Pintada, Stage 9 La Pintada to Manizales, Stage 10 Manizales to Libano, Stage 11 Libano to Viani, Stage 12 Viani to La Vega, Stage 13 La Vega to Bogota.  **Total: 540km with 12701m of climbing.**
+:::
+:::
+::::
+
+
 
 ---
 
@@ -189,18 +356,28 @@ Crossing the **Eastern Cordillera**, the tour reaches Bogotá before plunging in
 
 Here’s the interactive map showing the actual routes ridden in **Block 4**:
 
-<div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: stretch; margin: 20px 0;">
-    <div style="flex: 2; min-width: 200px; max-width: 300px;">
-        <iframe src="_static/maps/block_4_map.html" 
-                style="width: 100%; height: 400px; border: none; box-shadow: 0 0 5px rgba(0,0,0,0.2);"
-                scrolling="no" allowfullscreen></iframe>
-    </div>
-    <div style="flex: 3; min-width: 400px; display: flex; align-items: center; justify-content: center;">
-        <img src="_static/images/block_4_elevation.png" 
-             alt="Elevation Profile - Block 2" 
-             style="width: 100%; height: 400px; object-fit: contain;">
-    </div>
-</div>
+::::{grid} 2
+
+:::{grid-item}
+:columns: 4
+**Map**  
+<iframe src="_static/maps/block_4_map.html" 
+        style="width: 100%; height: 400px; border: none; box-shadow: 0 0 5px rgba(0,0,0,0.2);"
+        scrolling="no" allowfullscreen></iframe>
+:::
+
+:::{grid-item}
+:columns: 8
+**Elevation**  
+:::{figure} _static/images/block_4_elevation.png
+:alt: block_4_elevation
+:width: 100%
+:align: center
+:name: block_4_elevation-fig
+
+**Block 4:** Stage 14 Bogota to Anapoima, Stage 15 Anapoima to Prado, Stage 16 Prado to Desierto de la Tatocoa, Stage 17 Desierto de la Tatocoa to Gigante, Stage 18 Gigante to Elias, Stage 19 Elias to San Agustin.  **Total: 636km with 7725m of climbing.**
+:::
+::::
 
 ---
 
@@ -210,20 +387,28 @@ Approaching **San Agustín**, the tour enters the **Colombian Massif**, where **
 
 Here’s the interactive map showing the actual routes ridden in **Block 5**:
 
-<div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: stretch; margin: 20px 0;">
-    <div style="flex: 2; min-width: 200px; max-width: 300px;">
-        <iframe src="_static/maps/block_5_map.html" 
-                style="width: 100%; height: 400px; border: none; box-shadow: 0 0 5px rgba(0,0,0,0.2);"
-                scrolling="no" allowfullscreen></iframe>
-    </div>
-    <div style="flex: 3; min-width: 400px; display: flex; align-items: center; justify-content: center;">
-        <img src="_static/images/block_5_elevation.png" 
-             alt="Elevation Profile - Block 5" 
-             style="width: 100%; height: 400px; object-fit: contain;">
-    </div>
-</div>
+::::{grid} 2
 
+:::{grid-item}
+:columns: 4
+**Map**  
+<iframe src="_static/maps/block_5_map.html" 
+        style="width: 100%; height: 400px; border: none; box-shadow: 0 0 5px rgba(0,0,0,0.2);"
+        scrolling="no" allowfullscreen></iframe>
+:::
 
+:::{grid-item}
+:columns: 8
+**Elevation**  
+:::{figure} _static/images/block_5_elevation.png
+:alt: block_5_elevation
+:width: 100%
+:align: center
+:name: block_5_elevation-fig
+
+**Block 5:** Stage 20 San Agustin to Coconuco, Stage 21 Coconuco to Patia, Stage 22 Patia to Remolinos, Stage 23 Remolinos to Pasto.  **Total: 380km with 9037m of climbing.**
+:::
+::::
 
 
 ---
