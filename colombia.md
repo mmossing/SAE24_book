@@ -12,6 +12,7 @@ We spent a month riding across Colombia, from 30 June to 30 July 2024. From mids
 :gutter: 0
 
 :::{grid-item}
+
 :::{figure} _static/maps/colombia_rides_map.jpg
 :alt: colombia_rides_map
 :height: 400px
@@ -21,6 +22,7 @@ A month's worth of rides across Colombia
 :::
 
 :::{grid-item}
+
 :::{figure} _static/maps/magdalena_basin.png
 :alt: magdalena_basin
 :height: 400px
@@ -77,6 +79,7 @@ From Cartagena we headed south and east across the lowlands, into the countrysid
 :gutter: 3
 
 :::{grid-item}
+
 ```{raw} html
 <video width='90%' controls>
     <source src='_static/videos/b01_0630a.mp4' type='video/mp4'>
@@ -86,6 +89,7 @@ From Cartagena we headed south and east across the lowlands, into the countrysid
 :::
 
 :::{grid-item}
+
 :::{image} _static/photos/b01_0701a.jpg
     :alt: Block 1: Brits in the country
     :width: 90%
@@ -93,6 +97,7 @@ From Cartagena we headed south and east across the lowlands, into the countrysid
 :::
 
 :::{grid-item}
+
 :::{image} _static/photos/b01_0702a.jpg
     :alt: Block 1: Felicia with cows
     :width: 90%
@@ -100,6 +105,7 @@ From Cartagena we headed south and east across the lowlands, into the countrysid
 :::
 
 :::{grid-item}
+
 :::{image} _static/photos/b01_0702b.jpg
     :alt: Block 1: Mike, Felicia y policia
     :width: 90%
@@ -197,6 +203,7 @@ I set out on the rest day to have a look at the dirt (now mud!) road. It was so 
 :gutter: 3
 
 :::{grid-item}
+
 :::{image} _static/photos/b02_0703a.jpg
     :alt: Block 2: High water
     :width: 90%
@@ -204,6 +211,7 @@ I set out on the rest day to have a look at the dirt (now mud!) road. It was so 
 :::
 
 :::{grid-item}
+
 :::{image} _static/photos/b02_0703b.jpg
     :alt: Block 2: Muddy road
     :width: 90%
@@ -211,6 +219,7 @@ I set out on the rest day to have a look at the dirt (now mud!) road. It was so 
 :::
 
 :::{grid-item}
+
 :::{image} _static/photos/b02_0704a.jpg
     :alt: Block 2: Poling to find a passage
     :width: 90%
@@ -218,6 +227,7 @@ I set out on the rest day to have a look at the dirt (now mud!) road. It was so 
 :::
 
 :::{grid-item}
+
 ```{raw} html
 <video width='90%' controls>
     <source src='_static/videos/b02_0704b.mp4' type='video/mp4'>
@@ -274,6 +284,7 @@ After the wetlands came the hills.  The very next day we started to climb, just 
 :gutter: 3
 
 :::{grid-item}
+
 :::{image} _static/photos/b02_0705a.jpg
     :alt: Block 2: Cordillera view
     :width: 90%
@@ -281,6 +292,7 @@ After the wetlands came the hills.  The very next day we started to climb, just 
 :::
 
 :::{grid-item}
+
 :::{image} _static/photos/b02_0706a.jpg
     :alt: Block 2: Lorenzo
     :width: 90%
@@ -288,6 +300,7 @@ After the wetlands came the hills.  The very next day we started to climb, just 
 :::
 
 :::{grid-item}
+
 :::{image} _static/photos/b02_0706b.jpg
     :alt: Block 2: Paul
     :width: 90%
@@ -295,6 +308,7 @@ After the wetlands came the hills.  The very next day we started to climb, just 
 :::
 
 :::{grid-item}
+
 :::{image} _static/photos/b02_0706c.jpg
     :alt: Block 2: Mountain Stream
     :width: 90%

@@ -31,6 +31,156 @@ Leaving the bustling capital, the route moves through **vineyards, rolling hills
     </div>
 </div>
 
+## Block 21: Santiago to Concepción
+**Dates:** 2024-10-31 – 2024-11-05   |   **Riding days:** 6   |   **Rest days:** 0
+**Total distance:** 673 km   |   **Total elevation gain:** 5424 m
+
+| Date | Stage | Depart | Arrive | Dist (km) | Up (m) | Surface |
+|------|-------|--------|--------|-----------|--------|---------|
+| Thu Oct 31 | 94 | Santiago | Lo Miranda | 119 | 635 | paved |
+| Fri Nov 01 | 95 | Lo Miranda | Santa Cruz Vineyard | 114 | 365 | paved |
+| Sat Nov 02 | 96 | Santa Cruz Vineyard | La Pesca | 130 | 729 | paved |
+| Sun Nov 03 | 97 | La Pesca | Chanco | 114 | 1084 | paved |
+| Mon Nov 04 | 98 | Chanco | Treguaco | 118 | 1560 | 64 pave / 54 dirt |
+| Tue Nov 05 | 99 | Treguaco | Concepcion | 78 | 1051 | 69 pave / 9 dirt |
+
+Santiago was a great city for 2 rest days. Note that in contrast to much of South America 
+pedestrians feel super safe walking into the street without looking, once the signals indicate. Cyclists looking to beat a light are likely to at least get some angry looks.
+We stayed across the street from an Arts Center and near the campus of Pontificia Universidad Católica de Chile. Lots to see including Botero's Caballo in Parque Forestal and busy local Mercados.
+
+
+<!-- ═══ Wed Oct 30 ════════════════════════════════════════ -->
+
+:::::{grid} 2
+:gutter: 3
+
+::::{grid-item}
+:::{image} _static/photos/b21_1030a.jpg
+    :alt: Block 21: 10/30 — Botero's Caballo in Parque Forestal
+    :width: 90%
+:::
+::::
+
+::::{grid-item}
+:::{image} _static/photos/b21_1030b.jpg
+    :alt: Block 21: 10/30 — Mercado
+    :width: 90%
+:::
+::::
+
+:::::
+
+<!-- narrative: Wed Oct 30 -->
+Stage 94 to Lo Miranda South through the central valley Vineyards
+
+
+<!-- ═══ Thu Oct 31 ════════════════════════════════════════ -->
+
+:::::{grid} 1
+:gutter: 3
+
+::::{grid-item}
+:::{image} _static/photos/b21_1031a.jpg
+    :alt: Block 21: 10/31 — vines and mountains
+    :width: 90%
+:::
+::::
+
+:::::
+
+<!-- narrative: Thu Oct 31 -->
+
+Stage 95 to Santa Cruz Vineyard. I missed a turn early on, spent about 40km on the wrong side of the Rio Cacahpoal from the rest of the group.  But eventually found my way back to the group to see a number of rustic Water wheels and make it to a - Wine Tasting.
+<!-- ═══ Fri Nov 1 ═════════════════════════════════════════ -->
+
+:::::{grid} 2
+:gutter: 3
+
+::::{grid-item}
+```{raw} html
+<video width='90%' controls>
+    <source src='_static/videos/b21_1101b.mp4' type='video/mp4'>
+    Your browser does not support the video tag.
+</video>
+Several DIY waterwheels along the route!
+```
+::::
+
+
+::::{grid-item}
+:::{image} _static/photos/b21_1101a.jpg
+    :alt: Block 21: 11/1 — wine tasting in Santa Cruz
+    :width: 90%
+:::
+::::
+
+
+:::::
+
+<!-- narrative: Fri Nov 1 -->
+
+
+<!-- ═══ Sat Nov 2 ═════════════════════════════════════════ -->
+
+Finally a view of the Pacific Ocean. 
+
+:::::{grid} 1
+:gutter: 3
+
+::::{grid-item}
+:::{image} _static/photos/b21_1104a.jpg
+    :alt: Block 21: 11/4 — Pacific Coast
+    :width: 90%
+:::
+::::
+
+:::::
+
+<!-- ═══ Mon Nov 4 ═════════════════════════════════════════ -->
+
+:::::{grid} 2
+:gutter: 3
+
+
+::::{grid-item}
+:::{image} _static/photos/b21_1104b.jpg
+    :alt: Block 21: 11/4 — Board Walk, Surf, Pillars
+    :width: 90%
+:::
+::::
+
+
+::::{grid-item}
+:::{image} _static/photos/b21_1104e.jpg
+    :alt: Block 21: 11/4 — Better Gravel turn near the coast
+    :width: 90%
+:::
+::::
+
+:::::
+
+<!-- narrative: Mon Nov 4 -->
+
+Stage 99 to Concepcion. Crazy finish to the day along an abandoned coastal rail not yet a functional bikeway, lots of hike a bike and a surprisingly dark tunnel.
+
+
+<!-- ═══ Tue Nov 5 ═════════════════════════════════════════ -->
+
+:::::{grid} 1
+:gutter: 3
+
+::::{grid-item}
+:::{image} _static/photos/b21_1105a.jpg
+    :alt: Block 21: 11/5 — Rail Trail Bike(?!?) trail to Concepcion
+    :width: 90%
+:::
+::::
+
+:::::
+
+<!-- narrative: Tue Nov 5 -->
+
+
 ---
 
 ## **Block 22: Concepción to Pucón**  
