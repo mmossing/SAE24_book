@@ -5,7 +5,7 @@ execute:
   execute_notebooks: 'off'
 
 html:
-  baseurl: .
+  baseurl: "/SAE24_book"
   extra_footer:  |
     Content © 2024 Mike Mossing
     <script src="https://strava-embeds.com/embed.js"></script>

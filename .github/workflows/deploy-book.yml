@@ -22,7 +22,7 @@ jobs:
       - uses: actions/setup-python@v4
         with:
           python-version: '3.x'
-      - run: pip install jupyter-book sphinx
+      - run: pip install "jupyter-book==1.0.4.post1" sphinx-design sphinx-book-theme myst-parser
       - run: jupyter-book build .
       - uses: peaceiris/actions-gh-pages@v3
         with:
